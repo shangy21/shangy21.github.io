@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="awXwEoz1b-JxPMQIdXriZ_a6RMQ-9eRPaNoR9OpKRS8" />
-    <meta name="description" content="Homepage of Yu Shang (商宇) - Tsinghua University">
+    <meta name="description" content="Academic Space of Yu Shang (商宇) - Tsinghua University">
     <title>Yu Shang | Academic Exhibition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -20,8 +20,6 @@
             /* 核心成果的高奢艺术色调 */
             --glow-feature: rgba(37, 99, 235, 0.02);
             --txt-feature: #2563eb;
-            --glow-lead: rgba(15, 23, 42, 0.03);
-            --txt-lead-tag: #0f172a;
         }
 
         * {
@@ -156,7 +154,7 @@
             position: relative;
         }
 
-        /* 核心指定高亮研究 (Featured Masterpieces) */
+        /* 核心指定高亮研究 */
         .exhibition-card.card-featured {
             background: var(--card-bg);
             border: 1px solid var(--border-line);
@@ -176,6 +174,19 @@
         .card-title { font-size: 16.5px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; }
         .card-title a { color: var(--text-lead); text-decoration: none; }
         .exhibition-card:hover .card-title a { color: var(--accent-glow); }
+        
+        /* Project Lead 特殊星芒符号样式 */
+        .lead-symbol {
+            font-size: 12px;
+            color: var(--text-ghost);
+            margin-left: 4px;
+            vertical-align: 2px;
+            transition: color 0.3s ease;
+        }
+        .exhibition-card:hover .lead-symbol {
+            color: var(--accent-glow);
+        }
+
         .card-authors { font-size: 14px; color: var(--text-sub); margin-bottom: 10px; }
         .me { font-weight: 700; color: var(--text-lead); box-shadow: inset 0 -1px 0 var(--text-lead); }
         .card-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
@@ -184,8 +195,6 @@
         /* 微章体系 */
         .art-tag { font-style: normal; font-size: 9.5px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
         .tag-spotlight { background: #fef2f2; color: #ef4444; }
-        .tag-lead { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; font-weight: 800; }
-        .tag-conf { background: #f0fdf4; color: #16a34a; }
         .tag-prep { background: #f4f4f5; color: var(--text-ghost); }
 
         .card-links { display: flex; gap: 6px; font-size: 11px; font-family: ui-monospace, monospace; }
@@ -283,7 +292,6 @@
                     <div class="exhibition-card card-featured">
                         <div class="card-header">
                             <div class="card-title"><a href="https://arxiv.org/pdf/2410.06153" target="_blank">Agentsquare: Automatic LLM Agent Search in Modular Design Space</a></div>
-                            <span class="art-tag tag-conf">ICLR</span>
                         </div>
                         <div class="card-authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
                         <div class="card-footer">
@@ -292,17 +300,6 @@
                                 <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
                                 <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">webpage</a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="exhibition-card">
-                        <div class="card-header">
-                            <div class="card-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
-                            <span class="art-tag tag-prep">ICML 2026</span>
-                        </div>
-                        <div class="card-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
-                        <div class="card-footer">
-                            <div class="card-venue">International Conference on Machine Learning <strong>(ICML)</strong>, 2026</div>
                         </div>
                     </div>
 
@@ -378,6 +375,16 @@
                         <div class="card-authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
                         <div class="card-footer">
                             <div class="card-venue">Computer Vision and Pattern Recognition Conference <strong>(CVPR)</strong>, 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
+                        </div>
+                        <div class="card-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">International Conference on Machine Learning <strong>(ICML)</strong>, 2026</div>
                         </div>
                     </div>
 
@@ -461,8 +468,7 @@
 
                     <div class="exhibition-card card-featured">
                         <div class="card-header">
-                            <div class="card-title"><a href="#" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a></div>
-                            <span class="art-tag tag-lead">Project Lead</span>
+                            <div class="card-title"><a href="#" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a><span class="lead-symbol" title="Project Lead">✦</span></div>
                         </div>
                         <div class="card-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
                         <div class="card-footer">
@@ -472,10 +478,9 @@
 
                     <div class="exhibition-card card-featured">
                         <div class="card-header">
-                            <div class="card-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
-                            <span class="art-tag tag-lead">Project Lead</span>
+                            <div class="card-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a><span class="lead-symbol" title="Project Lead">✦</span></div>
                         </div>
-                        <div class="card-authors"><span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li</div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
                         <div class="card-footer">
                             <div class="card-links"><a href="https://world-arena.ai/" target="_blank">homepage</a></div>
                         </div>
@@ -486,8 +491,8 @@
                             <div class="card-title"><a href="https://www.researchgate.net/publication/395713824_A_Survey_of_Embodied_World_Models" target="_blank">A Survey of Embodied World Models</a></div>
                         </div>
                         <div class="card-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Xin Zhang, Shengyuan Wang, Yuwei Yan, Honglin Zhang, Zhiheng Zheng, Jie Zhao, Jie Feng, Chen Gao, Jiansheng Chen, Yong Li</div>
-                        <div class="card-footer">
-                            <div class="card-links"><a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">homepage</a></div>
+                        <div class="card-links">
+                            <a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">homepage</a>
                         </div>
                     </div>
 
