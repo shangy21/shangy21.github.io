@@ -5,28 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="awXwEoz1b-JxPMQIdXriZ_a6RMQ-9eRPaNoR9OpKRS8" />
     <meta name="description" content="Home page of Yu Shang">
-    <title>Yu Shang (商宇) | Homepage</title>
+    <title>Yu Shang (商宇) </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #111111;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --accent-color: #0f172a;
-            --link-color: #2563eb;
-            --border-color: #f1f5f9;
-            --tech-glow: rgba(37, 99, 235, 0.04);
+            --bg-base: #fcfcfd;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --text-ghost: #a1a1aa;
+            --accent: #2563eb;
+            --accent-dim: #eff6ff;
+            --border-subtle: #e4e4e7;
             
-            /* 智能徽章配色体系：冷淡、精致、不刺眼 */
-            --badge-spotlight-bg: #fff1f2;
-            --badge-spotlight-text: #df1c40;
-            --badge-highlight-bg: #fef3c7;
-            --badge-highlight-text: #b45309;
-            --badge-conf-bg: #f0fdf4;
-            --badge-conf-text: #166534;
-            --badge-prep-bg: #f8fafc;
-            --badge-prep-text: #475569;
+            /* 艺术与学术兼具的优雅色调 */
+            --tag-spotlight: #fef2f2;
+            --tag-spotlight-txt: #e11d48;
+            --tag-highlight: #fffbeb;
+            --tag-highlight-txt: #d97706;
+            --tag-conf: #f0fdf4;
+            --tag-conf-txt: #15803d;
+            --tag-prep: #f4f4f5;
+            --tag-prep-txt: #71717a;
         }
 
         * {
@@ -36,79 +35,94 @@
         }
 
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            line-height: 1.5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-base);
+            /* 环绕艺术微光背景 */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(239, 246, 255, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(254, 242, 242, 0.4) 0px, transparent 50%);
+            background-attachment: fixed;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1040px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 90px 40px;
+            padding: 120px 50px;
             display: grid;
             grid-template-columns: 240px 1fr;
-            gap: 80px;
+            gap: 100px;
         }
 
-        /* 左侧固定的杂志级侧边栏 */
+        /* 左侧固定：当代平面设计画廊风格 */
         aside {
             position: sticky;
-            top: 90px;
+            top: 120px;
             height: fit-content;
         }
 
-        .profile-img {
-            width: 170px;
-            height: 205px;
-            border-radius: 4px;
-            object-fit: cover;
-            object-position: center 15%;
-            margin-bottom: 28px;
-            border: 1px solid #e2e8f0;
-            filter: grayscale(10%) contrast(102%);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .avatar-frame {
+            position: relative;
+            width: 165px;
+            height: 200px;
+            margin-bottom: 32px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #f4f4f5;
         }
 
-        .profile-img:hover {
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            filter: grayscale(8%) contrast(101%);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 艺术互动：悬停时微弱的冷暖色调苏醒 */
+        .avatar-frame:hover .profile-img {
             filter: grayscale(0%) contrast(100%);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-            border-color: var(--text-muted);
+            transform: scale(1.03);
         }
 
         .profile-name {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 700;
-            letter-spacing: -0.8px;
-            color: var(--accent-color);
-            line-height: 1.1;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: #09090b;
         }
 
         .profile-name-zh {
             font-size: 16px;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-weight: 400;
-            margin-top: 2px;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            margin-top: 4px;
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
         }
 
         .profile-title {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 28px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
             line-height: 1.6;
         }
 
         .profile-title a {
-            color: var(--text-primary);
+            color: var(--text-main);
             text-decoration: none;
             font-weight: 500;
+            box-shadow: inset 0 -1px 0 var(--border-subtle);
+            transition: all 0.2s;
         }
         
         .profile-title a:hover {
-            color: var(--link-color);
+            color: var(--accent);
+            box-shadow: inset 0 -1px 0 var(--accent);
         }
 
         .social-links {
@@ -118,206 +132,203 @@
         }
 
         .social-links a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 14px;
-            transition: all 0.2s ease;
-            width: 34px;
-            height: 34px;
-            border-radius: 4px;
-            border: 1px solid #e2e8f0;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .social-links a:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-            background-color: #f8fafc;
+            color: var(--text-main);
+            border-color: var(--text-main);
+            background: #ffffff;
+            transform: translateY(-2px);
         }
 
-        /* 右侧主学术流布局 */
+        /* 右侧主学术内容流 */
         main {
             display: flex;
             flex-direction: column;
-            gap: 64px;
+            gap: 72px;
         }
 
         section h2 {
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 28px;
+            letter-spacing: 0.2em;
+            margin-bottom: 36px;
             text-transform: uppercase;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 6px;
+            color: var(--text-ghost);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 24px;
+            height: 1px;
+            background: var(--text-ghost);
         }
 
         .about-text {
-            font-size: 14.5px;
-            color: #334155;
+            font-size: 15px;
+            color: #27272a;
             text-align: justify;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         .about-text p {
-            margin-bottom: 16px;
+            margin-bottom: 18px;
+        }
+
+        .about-text strong {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .about-text a {
-            color: var(--text-primary);
+            color: var(--text-main);
             text-decoration: none;
             font-weight: 500;
-            border-bottom: 1px solid #cbd5e1;
+            box-shadow: inset 0 -1px 0 #cbd5e1;
             transition: all 0.2s;
         }
 
         .about-text a:hover {
-            color: var(--link-color);
-            border-bottom-color: var(--link-color);
+            color: var(--accent);
+            box-shadow: inset 0 -2px 0 var(--accent);
         }
 
-        /* 工业级科技感招聘盒 */
-        .job-alert {
-            background-color: #fafafa;
-            border: 1px solid #e2e8f0;
-            border-left: 3px solid var(--text-primary);
-            padding: 14px 18px;
-            font-size: 13.5px;
-            color: #1e293b;
-            margin-top: 24px;
-            border-radius: 4px;
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .job-alert i {
-            color: #e11d48;
-            animation: pulse 2s infinite;
-        }
-
-        /* 硬核论文流列表 */
+        /* 精致的文献列表架构 */
         .pub-list {
             display: flex;
             flex-direction: column;
-            gap: 26px;
+            gap: 32px;
         }
 
         .pub-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            padding: 4px 0;
-            transition: all 0.2s ease;
+            gap: 6px;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
-        /* 顶会特殊成果的科技感流线 */
+        /* 极其内敛的画廊特征美学线条 */
         .pub-item.spotlight-item {
-            padding-left: 16px;
-            border-left: 2px solid var(--badge-spotlight-text);
+            padding-left: 20px;
+            border-left: 1px solid var(--tag-spotlight-txt);
         }
         .pub-item.highlight-item {
-            padding-left: 16px;
-            border-left: 2px solid var(--badge-highlight-text);
+            padding-left: 20px;
+            border-left: 1px solid var(--tag-highlight-txt);
         }
 
         .pub-title {
-            font-size: 15px;
+            font-size: 15.5px;
             font-weight: 600;
-            line-height: 1.35;
-            letter-spacing: -0.1px;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
         }
 
         .pub-title a {
-            color: var(--accent-color);
+            color: var(--text-main);
             text-decoration: none;
-            transition: all 0.15s;
+            background-image: linear-gradient(var(--text-main), var(--text-main));
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 1px;
+            transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
         }
 
-        .pub-title a:hover {
-            color: var(--link-color);
+        .pub-item:hover .pub-title a {
+            color: var(--accent);
+            background-size: 100% 1px;
+            background-image: linear-gradient(var(--accent), var(--accent));
         }
 
         .pub-authors {
             font-size: 13.5px;
-            color: #475569;
+            color: var(--text-muted);
         }
 
         .me {
             font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            text-decoration-color: #94a3b8;
+            color: var(--text-main);
+            box-shadow: inset 0 -1px 0 #d4d4d8;
         }
 
         .pub-venue {
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             display: flex;
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
-            font-weight: 400;
         }
         
         .pub-venue strong {
             font-weight: 600;
-            color: var(--accent-color);
+            color: var(--text-main);
         }
 
-        /* 重新提炼的高级徽章 */
+        /* 当代艺术风极简微章 */
         .badge {
             font-style: normal;
-            font-size: 10px;
+            font-size: 9.5px;
             font-weight: 600;
             padding: 1px 6px;
-            border-radius: 2px;
+            border-radius: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
         }
 
-        .badge-spotlight { background-color: var(--badge-spotlight-bg); color: var(--badge-spotlight-text); }
-        .badge-highlight { background-color: var(--badge-highlight-bg); color: var(--badge-highlight-text); }
-        .badge-conference { background-color: var(--badge-conf-bg); color: var(--badge-conf-text); }
-        .badge-preprint { background-color: var(--badge-prep-bg); color: var(--badge-prep-text); border: 1px solid #e2e8f0; }
+        .badge-spotlight { background-color: var(--tag-spotlight); color: var(--tag-spotlight-txt); }
+        .badge-highlight { background-color: var(--tag-highlight); color: var(--tag-highlight-txt); }
+        .badge-conference { background-color: var(--tag-conf); color: var(--tag-conf-txt); }
+        .badge-preprint { background-color: var(--tag-prep); color: var(--tag-prep-txt); border: 1px solid var(--border-subtle); }
 
         .pub-links {
             margin-top: 4px;
             display: flex;
-            gap: 6px;
-            font-size: 11.5px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            gap: 8px;
+            font-size: 11px;
+            font-family: ui-monospace, monospace;
         }
 
         .pub-links a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
-            border: 1px solid #e2e8f0;
-            padding: 1px 8px;
-            border-radius: 3px;
-            background: #f8fafc;
-            transition: all 0.2s;
+            border: 1px solid var(--border-subtle);
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.25s;
         }
 
         .pub-links a:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
+            color: var(--text-main);
+            border-color: var(--text-main);
             background: #ffffff;
         }
 
-        /* 奖项列表科技图形点缀 */
         .custom-list {
             list-style: none;
-            font-size: 14px;
+            font-size: 14.5px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            color: #334155;
+            gap: 12px;
+            color: #27272a;
         }
 
         .custom-list li {
@@ -326,35 +337,30 @@
         }
 
         .custom-list li i {
-            margin-right: 12px;
-            color: var(--text-secondary);
+            margin-right: 14px;
+            color: var(--text-ghost);
             font-size: 12px;
-            width: 14px;
+            width: 16px;
             text-align: center;
         }
 
         footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-color);
-            font-size: 12px;
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 11.5px;
             font-family: ui-monospace, monospace;
-            color: var(--text-muted);
+            color: var(--text-ghost);
             text-align: center;
-            letter-spacing: -0.2px;
+            letter-spacing: -0.01em;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* 移动端完美流式适配 */
+        /* 移动端流式缩放响应式 */
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
-                padding: 50px 24px;
-                gap: 48px;
+                padding: 60px 24px;
+                gap: 56px;
             }
             aside {
                 position: relative;
@@ -365,7 +371,7 @@
                 text-align: center;
             }
             .pub-item.spotlight-item, .pub-item.highlight-item {
-                padding-left: 12px;
+                padding-left: 14px;
             }
         }
     </style>
@@ -374,7 +380,9 @@
 
     <div class="container">
         <aside>
-            <img src="./photo.jpg" alt="Yu Shang" class="profile-img" onerror="this.src='https://via.placeholder.com/170x205'">
+            <div class="avatar-frame">
+                <img src="./photo.jpg" alt="Yu Shang" class="profile-img" onerror="this.src='https://via.placeholder.com/170x205'">
+            </div>
             <h1 class="profile-name">Yu Shang</h1>
             <div class="profile-name-zh">商宇</div>
             <p class="profile-title">
@@ -397,7 +405,6 @@
                 <div class="about-text">
                     <p>I am a final-year Ph.D. student at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>, advised by <a href="https://fi.ee.tsinghua.edu.cn/~liyong/" target="_blank">Prof. Yong Li</a> and <a href="https://jschenthu.weebly.com/publications.html" target="_blank">Prof. Jiansheng Chen</a>. My research interests mainly focus on <strong>World Model, VLM, and LLM Agent</strong>.</p>
                     <p>Previously, I received my B.E. degree from the Department of Electronic Engineering, Tsinghua University in June 2021. I also received a second B.E. degree from the School of Economics and Management, Tsinghua University in June 2021.</p>
-                    
                 </div>
             </section>
 
@@ -423,6 +430,15 @@
                         </div>
                         <div class="pub-links">
                             <a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
+                        <div class="pub-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
+                        <div class="pub-venue">
+                            International Conference on Machine Learning <strong>(ICML)</strong>, 2026
+                            <span class="badge badge-conference">Conference</span>
                         </div>
                     </div>
 
@@ -573,12 +589,20 @@
                     </div>
 
                 </div>
-                <p style="font-size: 12px; color: var(--text-secondary); margin-top: 14px; font-family: ui-monospace, monospace;">* indicates co-first authors.</p>
+                <p style="font-size: 11.5px; color: var(--text-ghost); margin-top: 14px; font-family: ui-monospace, monospace;">* indicates co-first authors.</p>
             </section>
 
             <section id="preprints">
                 <h2>Preprints</h2>
                 <div class="pub-list">
+
+                    <div class="pub-item">
+                        <div class="pub-title"><a href="#" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a></div>
+                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
+                        <div class="pub-links">
+                            <a href="https://world-arena.ai/" target="_blank">homepage</a>
+                        </div>
+                    </div>
 
                     <div class="pub-item">
                         <div class="pub-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
@@ -620,11 +644,6 @@
                     </div>
 
                     <div class="pub-item">
-                        <div class="pub-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
-                        <div class="pub-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
-                    </div>
-
-                    <div class="pub-item">
                         <div class="pub-title"><a href="https://arxiv.org/pdf/2509.21027" target="_blank">KeyWorld: Key Frame Reasoning Enables Effective and Efficient World Models</a></div>
                         <div class="pub-authors">Sibo Li, Qianyue Hao, <span class="me">Yu Shang</span>, Yong Li</div>
                     </div>
@@ -651,12 +670,12 @@
             <section id="services">
                 <h2>Academic Services</h2>
                 <div class="about-text">
-                    <p><i class="fa-solid fa-code-branch" style="font-size: 12px; margin-right: 8px; color: var(--text-secondary);"></i> <strong>Reviewer for:</strong> NeurIPS, ICML, ICLR, ICCV, ECCV, CVPR, AAAI, TKDE.</p>
+                    <p><i class="fa-solid fa-code-branch" style="font-size: 11px; margin-right: 8px; color: var(--text-ghost);"></i> <strong>Reviewer for:</strong> NeurIPS, ICML, ICLR, ICCV, ECCV, CVPR, AAAI, TKDE.</p>
                 </div>
             </section>
 
             <footer>
-                &copy; 2026 Yu Shang. Unified perception & function engineering.
+                &copy; 2026 Yu Shang. Latent structure & unified evaluation engineering.
             </footer>
         </main>
     </div>
