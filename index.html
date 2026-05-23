@@ -4,28 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="awXwEoz1b-JxPMQIdXriZ_a6RMQ-9eRPaNoR9OpKRS8" />
-    <meta name="description" content="Home page of Yu Shang">
-    <title>Yu Shang (商宇) </title>
+    <meta name="description" content="Academic Space of Yu Shang (商宇) - Tsinghua University">
+    <title>Yu Shang | Academic Exhibition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-base: #fcfcfd;
-            --text-main: #18181b;
-            --text-muted: #52525b;
-            --text-ghost: #a1a1aa;
-            --accent: #2563eb;
-            --accent-dim: #eff6ff;
-            --border-subtle: #e4e4e7;
+            --bg-canvas: #fafafa;
+            --text-lead: #09090b;
+            --text-sub: #444446;
+            --text-ghost: #8e8e93;
+            --border-line: #e5e5ea;
+            --accent-glow: #2563eb;
+            --card-bg: rgba(255, 255, 255, 0.7);
             
-            /* 艺术与学术兼具的优雅色调 */
-            --tag-spotlight: #fef2f2;
-            --tag-spotlight-txt: #e11d48;
-            --tag-highlight: #fffbeb;
-            --tag-highlight-txt: #d97706;
-            --tag-conf: #f0fdf4;
-            --tag-conf-txt: #15803d;
-            --tag-prep: #f4f4f5;
-            --tag-prep-txt: #71717a;
+            /* 艺术级学术色调 */
+            --glow-spotlight: rgba(239, 68, 68, 0.05);
+            --txt-spotlight: #dc2626;
+            --glow-highlight: rgba(245, 158, 11, 0.05);
+            --txt-highlight: #d97706;
+            --glow-conf: rgba(34, 197, 94, 0.04);
+            --txt-conf: #16a34a;
         }
 
         * {
@@ -35,649 +33,700 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-base);
-            /* 环绕艺术微光背景 */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-lead);
+            background-color: var(--bg-canvas);
+            /* 三维网格与冷暖环境微光层叠 */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(239, 246, 255, 0.6) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(254, 242, 242, 0.4) 0px, transparent 50%);
-            background-attachment: fixed;
+                linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+                radial-gradient(at 100% 0%, rgba(37, 99, 235, 0.04) 0px, transparent 40%),
+                radial-gradient(at 0% 100%, rgba(225, 29, 72, 0.03) 0px, transparent 40%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1100px;
+        /* 策展型大流式容器 */
+        .wrapper {
+            max-width: 960px;
             margin: 0 auto;
-            padding: 120px 50px;
+            padding: 140px 40px;
+        }
+
+        /* 1. 颠覆传统的巨幕开场 (Hero Presentation) */
+        header {
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 100px;
+            grid-template-columns: 1fr 150px;
+            gap: 40px;
+            align-items: center;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-line);
+            margin-bottom: 90px;
         }
 
-        /* 左侧固定：当代平面设计画廊风格 */
-        aside {
-            position: sticky;
-            top: 120px;
-            height: fit-content;
+        .hero-title h1 {
+            font-size: 46px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: var(--text-lead);
         }
 
-        .avatar-frame {
-            position: relative;
-            width: 165px;
-            height: 200px;
-            margin-bottom: 32px;
-            border-radius: 6px;
+        .hero-title .zh-name {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-sub);
+            letter-spacing: 0.15em;
+            margin-top: 6px;
+            margin-bottom: 24px;
+        }
+
+        .hero-desc {
+            font-size: 16.5px;
+            color: var(--text-sub);
+            max-width: 680px;
+            text-align: justify;
+        }
+
+        .hero-desc a {
+            color: var(--text-lead);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: inset 0 -2px 0 var(--border-line);
+            transition: all 0.2s;
+        }
+
+        .hero-desc a:hover {
+            color: var(--accent-glow);
+            box-shadow: inset 0 -2px 0 var(--accent-glow);
+        }
+
+        /* 方形硬朗艺术微框 */
+        .hero-avatar {
+            width: 150px;
+            height: 185px;
+            border-radius: 4px;
             overflow: hidden;
-            background: #f4f4f5;
+            border: 1px solid var(--border-line);
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: transform 0.4s;
         }
 
-        .profile-img {
+        .hero-avatar:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 15%;
-            filter: grayscale(8%) contrast(101%);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 艺术互动：悬停时微弱的冷暖色调苏醒 */
-        .avatar-frame:hover .profile-img {
-            filter: grayscale(0%) contrast(100%);
-            transform: scale(1.03);
-        }
-
-        .profile-name {
-            font-size: 30px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-            color: #09090b;
-        }
-
-        .profile-name-zh {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-top: 4px;
-            margin-bottom: 24px;
-            letter-spacing: 0.1em;
-        }
-
-        .profile-title {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .profile-title a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            box-shadow: inset 0 -1px 0 var(--border-subtle);
-            transition: all 0.2s;
-        }
-        
-        .profile-title a:hover {
-            color: var(--accent);
-            box-shadow: inset 0 -1px 0 var(--accent);
-        }
-
-        .social-links {
+        .header-meta {
+            margin-top: 28px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            align-items: center;
+            gap: 24px;
         }
 
-        .social-links a {
-            color: var(--text-muted);
+        .social-dock {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-dock a {
+            color: var(--text-sub);
             text-decoration: none;
-            font-size: 14px;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 15px;
             width: 36px;
             height: 36px;
-            border-radius: 6px;
-            border: 1px solid var(--border-subtle);
-            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            border: 1px solid var(--border-line);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease;
         }
 
-        .social-links a:hover {
-            color: var(--text-main);
-            border-color: var(--text-main);
-            background: #ffffff;
-            transform: translateY(-2px);
+        .social-dock a:hover {
+            color: var(--text-lead);
+            border-color: var(--text-lead);
+            transform: scale(1.05);
         }
 
-        /* 右侧主学术内容流 */
-        main {
-            display: flex;
-            flex-direction: column;
-            gap: 72px;
+        /* 2. 画廊网格部分通用架构 */
+        section {
+            margin-bottom: 90px;
         }
 
         section h2 {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.2em;
-            margin-bottom: 36px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-ghost);
-            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         section h2::after {
             content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 24px;
+            flex-grow: 1;
             height: 1px;
-            background: var(--text-ghost);
+            background: linear-gradient(90deg, var(--border-line), transparent);
         }
 
-        .about-text {
-            font-size: 15px;
-            color: #27272a;
-            text-align: justify;
-            line-height: 1.7;
-        }
-
-        .about-text p {
-            margin-bottom: 18px;
-        }
-
-        .about-text strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .about-text a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            box-shadow: inset 0 -1px 0 #cbd5e1;
-            transition: all 0.2s;
-        }
-
-        .about-text a:hover {
-            color: var(--accent);
-            box-shadow: inset 0 -2px 0 var(--accent);
-        }
-
-        /* 精致的文献列表架构 */
-        .pub-list {
+        /* 3. 解构重组：艺术卡片式成果流（Matrix Grid） */
+        .exhibition-grid {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 20px;
         }
 
-        .pub-item {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .exhibition-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-line);
+            border-radius: 6px;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            transition: all 0.3s ease;
         }
 
-        /* 极其内敛的画廊特征美学线条 */
-        .pub-item.spotlight-item {
-            padding-left: 20px;
-            border-left: 1px solid var(--tag-spotlight-txt);
-        }
-        .pub-item.highlight-item {
-            padding-left: 20px;
-            border-left: 1px solid var(--tag-highlight-txt);
+        .exhibition-card:hover {
+            border-color: var(--text-lead);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
-        .pub-title {
-            font-size: 15.5px;
-            font-weight: 600;
-            line-height: 1.4;
+        /* Spotlight/Highlight 顶会艺术渲染 */
+        .exhibition-card.card-spotlight {
+            background: var(--glow-spotlight);
+            border-left: 3px solid var(--txt-spotlight);
+        }
+        .exhibition-card.card-highlight {
+            background: var(--glow-highlight);
+            border-left: 3px solid var(--txt-highlight);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 16.5px;
+            font-weight: 700;
             letter-spacing: -0.01em;
+            line-height: 1.35;
         }
 
-        .pub-title a {
-            color: var(--text-main);
+        .card-title a {
+            color: var(--text-lead);
             text-decoration: none;
-            background-image: linear-gradient(var(--text-main), var(--text-main));
-            background-position: 0 100%;
-            background-repeat: no-repeat;
-            background-size: 0% 1px;
-            transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
         }
 
-        .pub-item:hover .pub-title a {
-            color: var(--accent);
-            background-size: 100% 1px;
-            background-image: linear-gradient(var(--accent), var(--accent));
-        }
-
-        .pub-authors {
-            font-size: 13.5px;
-            color: var(--text-muted);
+        .card-authors {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
         }
 
         .me {
-            font-weight: 600;
-            color: var(--text-main);
-            box-shadow: inset 0 -1px 0 #d4d4d8;
+            font-weight: 700;
+            color: var(--text-lead);
+            box-shadow: inset 0 -1px 0 var(--text-lead);
         }
 
-        .pub-venue {
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .card-venue {
             font-size: 13px;
-            color: var(--text-muted);
+            color: var(--text-sub);
             display: flex;
             align-items: center;
             gap: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .pub-venue strong {
-            font-weight: 600;
-            color: var(--text-main);
         }
 
-        /* 当代艺术风极简微章 */
-        .badge {
+        /* 极简无实体艺术徽章 */
+        .art-tag {
             font-style: normal;
             font-size: 9.5px;
-            font-weight: 600;
-            padding: 1px 6px;
-            border-radius: 3px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        .tag-spotlight { background: #fff1f2; color: var(--txt-spotlight); }
+        .tag-highlight { background: #fffbeb; color: var(--txt-highlight); }
+        .tag-conf { background: #f0fdf4; color: var(--txt-conf); }
+        .tag-prep { background: #f4f4f5; color: var(--text-ghost); border: 1px solid var(--border-line); }
 
-        .badge-spotlight { background-color: var(--tag-spotlight); color: var(--tag-spotlight-txt); }
-        .badge-highlight { background-color: var(--tag-highlight); color: var(--tag-highlight-txt); }
-        .badge-conference { background-color: var(--tag-conf); color: var(--tag-conf-txt); }
-        .badge-preprint { background-color: var(--tag-prep); color: var(--tag-prep-txt); border: 1px solid var(--border-subtle); }
-
-        .pub-links {
-            margin-top: 4px;
+        .card-links {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             font-size: 11px;
-            font-family: ui-monospace, monospace;
+            font-family: ui-monospace, SFMono-Regular, monospace;
         }
 
-        .pub-links a {
-            color: var(--text-muted);
+        .card-links a {
+            color: var(--text-sub);
             text-decoration: none;
-            border: 1px solid var(--border-subtle);
-            padding: 2px 8px;
+            border: 1px solid var(--border-line);
+            padding: 2px 10px;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            transition: all 0.25s;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.2s;
         }
 
-        .pub-links a:hover {
-            color: var(--text-main);
-            border-color: var(--text-main);
+        .card-links a:hover {
+            color: var(--text-lead);
+            border-color: var(--text-lead);
             background: #ffffff;
         }
 
-        .custom-list {
+        /* 4. 荣誉与服务：包豪斯双列数字化排版 */
+        .dual-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .art-list {
             list-style: none;
-            font-size: 14.5px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            color: #27272a;
+            gap: 14px;
+            font-size: 14.5px;
+            color: var(--text-sub);
         }
 
-        .custom-list li {
+        .art-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            gap: 12px;
         }
 
-        .custom-list li i {
-            margin-right: 14px;
+        .art-list li i {
             color: var(--text-ghost);
             font-size: 12px;
-            width: 16px;
-            text-align: center;
+            margin-top: 5px;
         }
 
         footer {
-            margin-top: 60px;
-            padding-top: 28px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 11.5px;
+            margin-top: 120px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-line);
+            font-size: 11px;
             font-family: ui-monospace, monospace;
             color: var(--text-ghost);
-            text-align: center;
-            letter-spacing: -0.01em;
+            display: flex;
+            justify-content: space-between;
         }
 
-        /* 移动端流式缩放响应式 */
+        /* 移动端艺术崩塌自适应 */
         @media (max-width: 768px) {
-            .container {
+            header {
                 grid-template-columns: 1fr;
-                padding: 60px 24px;
-                gap: 56px;
-            }
-            aside {
-                position: relative;
-                top: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                gap: 30px;
                 text-align: center;
+                padding-bottom: 40px;
             }
-            .pub-item.spotlight-item, .pub-item.highlight-item {
-                padding-left: 14px;
+            .hero-avatar {
+                margin: 0 auto;
+                order: -1;
+            }
+            .header-meta {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .dual-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .card-header {
+                flex-direction: column;
+                gap: 8px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <aside>
-            <div class="avatar-frame">
-                <img src="./photo.jpg" alt="Yu Shang" class="profile-img" onerror="this.src='https://via.placeholder.com/170x205'">
+    <div class="wrapper">
+        <header>
+            <div class="hero-title">
+                <h1>Yu Shang</h1>
+                <div class="zh-name">商宇</div>
+                <div class="hero-desc">
+                    <p>I am a final-year Ph.D. candidate in the <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">Department of Electronic Engineering</a> at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>, where I am fortunate to be advised by <a href="https://fi.ee.tsinghua.edu.cn/~liyong/" target="_blank">Prof. Yong Li</a> and <a href="https://jschenthu.weebly.com/publications.html" target="_blank">Prof. Jiansheng Chen</a>. Simultaneously, I hold a secondary B.E. degree from the School of Economics and Management at Tsinghua University.</p>
+                    <p style="margin-top: 12px;">My research space is dedicated to exploring the borders of artificial intelligence, with a particular focus on <strong>Embodied World Models, VLMs, and LLM Agents</strong>.</p>
+                </div>
+                <div class="header-meta">
+                    <div class="social-dock">
+                        <a href="mailto:shangy21@mails.tsinghua.edu.cn" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ" target="_blank" title="Google Scholar"><i class="fa-graduation-cap fas"></i></a>
+                        <a href="https://github.com/thu-yu-shang" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/%E5%AE%87-%E5%95%86-b72076383/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
-            <h1 class="profile-name">Yu Shang</h1>
-            <div class="profile-name-zh">商宇</div>
-            <p class="profile-title">
-                Ph.D. Candidate<br>
-                <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">Department of Electronic Engineering</a><br>
-                <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>
-            </p>
-            
-            <div class="social-links">
-                <a href="mailto:shangy21@mails.tsinghua.edu.cn" title="Email"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ" target="_blank" title="Google Scholar"><i class="fa-graduation-cap fas"></i></a>
-                <a href="https://github.com/thu-yu-shang" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/%E5%AE%87-%E5%95%86-b72076383/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <div class="hero-avatar">
+                <img src="./photo.jpg" alt="Yu Shang" onerror="this.src='https://via.placeholder.com/150x185'">
             </div>
-        </aside>
+        </header>
 
         <main>
-            <section id="biography">
-                <h2>Biography</h2>
-                <div class="about-text">
-                    <p>I am a final-year Ph.D. student at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>, advised by <a href="https://fi.ee.tsinghua.edu.cn/~liyong/" target="_blank">Prof. Yong Li</a> and <a href="https://jschenthu.weebly.com/publications.html" target="_blank">Prof. Jiansheng Chen</a>. My research interests mainly focus on <strong>World Model, VLM, and LLM Agent</strong>.</p>
-                    <p>Previously, I received my B.E. degree from the Department of Electronic Engineering, Tsinghua University in June 2021. I also received a second B.E. degree from the School of Economics and Management, Tsinghua University in June 2021.</p>
-                </div>
-            </section>
-
             <section id="publications">
                 <h2>Research Publications</h2>
-                <div class="pub-list">
+                <div class="exhibition-grid">
 
-                    <div class="pub-item spotlight-item">
-                        <div class="pub-title"><a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
-                        <div class="pub-venue">
-                            International Conference on Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2025
-                            <span class="badge badge-spotlight">Spotlight (Top 3.5%)</span>
+                    <div class="exhibition-card card-spotlight">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a></div>
+                            <span class="art-tag tag-spotlight">Spotlight (Top 3.5%)</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2025</div>
                         </div>
                     </div>
 
-                    <div class="pub-item spotlight-item">
-                        <div class="pub-title"><a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
-                        <div class="pub-venue">
-                            International Conference on Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2025
-                            <span class="badge badge-spotlight">Spotlight (Top 3.5%)</span>
+                    <div class="exhibition-card card-spotlight">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a></div>
+                            <span class="art-tag tag-spotlight">Spotlight (Top 3.5%)</span>
                         </div>
-                        <div class="pub-links">
-                            <a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
-                        <div class="pub-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
-                        <div class="pub-venue">
-                            International Conference on Machine Learning <strong>(ICML)</strong>, 2026
-                            <span class="badge badge-conference">Conference</span>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">Neural Information Processing Systems <strong>(NeurIPS)</strong>, 2025</div>
+                            <div class="card-links"><a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2410.06153" target="_blank">Agentsquare: Automatic LLM Agent Search in Modular Design Space</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">
-                            International Conference on Learning Representations <strong>(ICLR)</strong>, 2025
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
+                            <span class="art-tag tag-conf">ICML 2026</span>
                         </div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
-                            <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">webpage</a>
+                        <div class="card-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">International Conference on Machine Learning <strong>(ICML)</strong>, 2026</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2502.05922" target="_blank">A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM Web Conference <strong>(WWW)</strong>, 2025
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2410.06153" target="_blank">Agentsquare: Automatic LLM Agent Search in Modular Design Space</a></div>
+                            <span class="art-tag tag-conf">ICLR</span>
                         </div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank">dataset & code</a>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2502.18754" target="_blank">AgentSociety Challenge: Designing LLM Agents for User Modeling and Recommendation on Web Platforms</a></div>
-                        <div class="pub-authors">Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li, Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan, Yu Wang, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM Web Conference <strong>(WWW)</strong>, 2025
-                            <span class="badge badge-conference">Conference</span>
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/AgentSocietyChallenge" target="_blank">code</a>
-                            <a href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/pages/overview.html" target="_blank">webpage</a>
+                        <div class="card-authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">International Conference on Learning Representations <strong>(ICLR)</strong>, 2025</div>
+                            <div class="card-links">
+                                <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
+                                <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">webpage</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">Improving Item-side Fairness of Multimodal Recommendation via Modality Debiasing</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM Web Conference <strong>(WWW)</strong>, 2024
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2502.05922" target="_blank">A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform</a></div>
+                            <span class="art-tag tag-conf">WWW</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM Web Conference <strong>(WWW)</strong>, 2025</div>
+                            <div class="card-links"><a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank">dataset & code</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">Enhancing Adversarial Robustness of Multi-modal Recommendation via Modality Balancing</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Huimin Ma, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2023
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2502.18754" target="_blank">AgentSociety Challenge: Designing LLM Agents for User Modeling and Recommendation on Web Platforms</a></div>
+                            <span class="art-tag tag-conf">WWW</span>
+                        </div>
+                        <div class="card-authors">Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li, Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan, Yu Wang, Fengli Xu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM Web Conference <strong>(WWW)</strong>, 2025</div>
+                            <div class="card-links">
+                                <a href="https://github.com/tsinghua-fib-lab/AgentSocietyChallenge" target="_blank">code</a>
+                                <a href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/pages/overview.html" target="_blank">webpage</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">Learning Fine-grained User Interests for Micro-video Recommendation</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Meng Wang, Yong Li</div>
-                        <div class="pub-venue">
-                            International ACM SIGIR Conference on Research and Development in Information Retrieval <strong>(SIGIR)</strong>, 2023
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">Improving Item-side Fairness of Multimodal Recommendation via Modality Debiasing</a></div>
+                            <span class="art-tag tag-conf">WWW</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM Web Conference <strong>(WWW)</strong>, 2024</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">Transferable Structure-based Adversarial Attack of Heterogeneous Graph Neural Network</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen, Depeng Jin, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2023
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">Enhancing Adversarial Robustness of Multi-modal Recommendation via Modality Balancing</a></div>
+                            <span class="art-tag tag-conf">ACM MM</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Huimin Ma, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2023</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/abs/2512.03556" target="_blank">RoboScape-R: Unified Reward-Observation World Models for Generalizable Robotics Training via RL</a></div>
-                        <div class="pub-authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
-                        <div class="pub-venue">
-                            Computer Vision and Pattern Recognition Conference <strong>(CVPR, Finding)</strong>, 2026
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">Learning Fine-grained User Interests for Micro-video Recommendation</a></div>
+                            <span class="art-tag tag-conf">SIGIR</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Meng Wang, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">International ACM SIGIR Conference on Research and Development in Information Retrieval <strong>(SIGIR)</strong>, 2023</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2411.14499" target="_blank">Understanding World or Predicting Future? A Comprehensive Survey of World Models</a></div>
-                        <div class="pub-authors">Jingtao Ding, Yunke Zhang, <span class="me">Yu Shang</span>, Yuheng Zhang, Zefang Zong, Jie Feng, Yuan Yuan, Hongyuan Su, Nian Li, Nicholas Sukiennik, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">
-                            <strong>ACM Computing Surveys</strong>, 2025
-                            <span class="badge badge-preprint">Journal</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">Transferable Structure-based Adversarial Attack of Heterogeneous Graph Neural Network</a></div>
+                            <span class="art-tag tag-conf">CIKM</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen, Depeng Jin, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2023</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/27920/" target="_blank">Transferable Adversarial Attacks for Object Detection Using Object-Aware Significant Feature Distortion</a></div>
-                        <div class="pub-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Yining Qin, Huimin Ma</div>
-                        <div class="pub-venue">
-                            AAAI Conference on Artificial Intelligence <strong>(AAAI)</strong>, 2024
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/abs/2512.03556" target="_blank">RoboScape-R: Unified Reward-Observation World Models for Generalizable Robotics Training via RL</a></div>
+                            <span class="art-tag tag-conf">CVPR Finding</span>
+                        </div>
+                        <div class="card-authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">Computer Vision and Pattern Recognition Conference <strong>(CVPR)</strong>, 2026</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://openreview.net/pdf?id=a1oBXsUjx5" target="_blank">Health CLIP: Depression Rate Prediction Using Health Related Features in Satellite and Street View Images</a></div>
-                        <div class="pub-authors">Tianjian Ouyang, Xin Zhang, Zhenyu Han, <span class="me">Yu Shang</span>, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM Web Conference <strong>(WWW)</strong>, 2024
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2411.14499" target="_blank">Understanding World or Predicting Future? A Comprehensive Survey of World Models</a></div>
+                            <span class="art-tag tag-prep">Journal</span>
+                        </div>
+                        <div class="card-authors">Jingtao Ding, Yunke Zhang, <span class="me">Yu Shang</span>, Yuheng Zhang, Zefang Zong, Jie Feng, Yuan Yuan, Hongyuan Su, Nian Li, Nicholas Sukiennik, Fengli Xu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue"><strong>ACM Computing Surveys</strong>, 2025</div>
                         </div>
                     </div>
 
-                    <div class="pub-item highlight-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2507.10265" target="_blank">Kaleidoscopic Background Attack: Disrupting Pose Estimation with Multi-Fold Radial Symmetry Textures</a></div>
-                        <div class="pub-authors">Xinlong Ding, Hongwei Yu, Jiawei Li, Feifan Li, <span class="me">Yu Shang</span>, Bochao Zou, Huimin Ma, Jiansheng Chen</div>
-                        <div class="pub-venue">
-                            International Conference on Computer Vision <strong>(ICCV)</strong>, 2025
-                            <span class="badge badge-highlight">Highlight</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/27920/" target="_blank">Transferable Adversarial Attacks for Object Detection Using Object-Aware Significant Feature Distortion</a></div>
+                            <span class="art-tag tag-conf">AAAI</span>
+                        </div>
+                        <div class="card-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Yining Qin, Huimin Ma</div>
+                        <div class="card-footer">
+                            <div class="card-venue">AAAI Conference on Artificial Intelligence <strong>(AAAI)</strong>, 2024</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10447293" target="_blank">Enhancing Adversarial Transferability in Object Detection with Bidirectional Feature Distortion</a></div>
-                        <div class="pub-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Huimin Ma</div>
-                        <div class="pub-venue">
-                            IEEE International Conference on Acoustics, Speech and Signal Processing <strong>(ICASSP)</strong>, 2024
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://openreview.net/pdf?id=a1oBXsUjx5" target="_blank">Health CLIP: Depression Rate Prediction Using Health Related Features in Satellite and Street View Images</a></div>
+                            <span class="art-tag tag-conf">WWW</span>
+                        </div>
+                        <div class="card-authors">Tianjian Ouyang, Xin Zhang, Zhenyu Han, <span class="me">Yu Shang</span>, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM Web Conference <strong>(WWW)</strong>, 2024</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2102.10550" target="_blank">Genetic Meta-structure Search for Recommendation on Heterogeneous Information Network</a></div>
-                        <div class="pub-authors">Zhenyu Han, Fengli Xu, Jinghan Shi, <span class="me">Yu Shang</span>, Haorui Ma, Pan Hui, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2020
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card card-highlight">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2507.10265" target="_blank">Kaleidoscopic Background Attack: Disrupting Pose Estimation with Multi-Fold Radial Symmetry Textures</a></div>
+                            <span class="art-tag tag-highlight">ICCV Highlight</span>
+                        </div>
+                        <div class="card-authors">Xinlong Ding, Hongwei Yu, Jiawei Li, Feifan Li, <span class="me">Yu Shang</span>, Bochao Zou, Huimin Ma, Jiansheng Chen</div>
+                        <div class="card-footer">
+                            <div class="card-venue">International Conference on Computer Vision <strong>(ICCV)</strong>, 2025</div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2507.08885" target="_blank">AirScape: An Aerial Generative World Model with Motion Controllability</a></div>
-                        <div class="pub-authors">Baining Zhao, Rongze Tang, Mingyuan Jia, Ziyou Wang, Fanghang Man, Xin Zhang, <span class="me">Yu Shang</span>, Weichen Zhang, Chen Gao, Wei Wu, Xin Wang, Xinlei Chen, Yong Li</div>
-                        <div class="pub-venue">
-                            ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2025
-                            <span class="badge badge-conference">Conference</span>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://ieeexplore.ieee.org/abstract/document/10447293" target="_blank">Enhancing Adversarial Transferability in Object Detection with Bidirectional Feature Distortion</a></div>
+                            <span class="art-tag tag-conf">ICASSP</span>
+                        </div>
+                        <div class="card-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Huimin Ma</div>
+                        <div class="card-footer">
+                            <div class="card-venue">IEEE International Conference on Acoustics, Speech and Signal Processing <strong>(ICASSP)</strong>, 2024</div>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2102.10550" target="_blank">Genetic Meta-structure Search for Recommendation on Heterogeneous Information Network</a></div>
+                            <span class="art-tag tag-conf">CIKM</span>
+                        </div>
+                        <div class="card-authors">Zhenyu Han, Fengli Xu, Jinghan Shi, <span class="me">Yu Shang</span>, Haorui Ma, Pan Hui, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2020</div>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2507.08885" target="_blank">AirScape: An Aerial Generative World Model with Motion Controllability</a></div>
+                            <span class="art-tag tag-conf">ACM MM</span>
+                        </div>
+                        <div class="card-authors">Baining Zhao, Rongze Tang, Mingyuan Jia, Ziyou Wang, Fanghang Man, Xin Zhang, <span class="me">Yu Shang</span>, Weichen Zhang, Chen Gao, Wei Wu, Xin Wang, Xinlei Chen, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-venue">ACM International Conference on Multimedia <strong>(ACM MM)</strong>, 2025</div>
                         </div>
                     </div>
 
                 </div>
-                <p style="font-size: 11.5px; color: var(--text-ghost); margin-top: 14px; font-family: ui-monospace, monospace;">* indicates co-first authors.</p>
+                <p style="font-size: 11px; color: var(--text-ghost); margin-top: 20px; font-family: ui-monospace, monospace;">* indicates co-first authors.</p>
             </section>
 
             <section id="preprints">
                 <h2>Preprints</h2>
-                <div class="pub-list">
+                <div class="exhibition-grid">
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="#" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
-                        <div class="pub-links">
-                            <a href="https://world-arena.ai/" target="_blank">homepage</a>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="#" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-links"><a href="https://world-arena.ai/" target="_blank">homepage</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li</div>
-                        <div class="pub-links">
-                            <a href="https://world-arena.ai/" target="_blank">homepage</a>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-links"><a href="https://world-arena.ai/" target="_blank">homepage</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://www.researchgate.net/publication/395713824_A_Survey_of_Embodied_World_Models" target="_blank">A Survey of Embodied World Models</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Xin Zhang, Shengyuan Wang, Yuwei Yan, Honglin Zhang, Zhiheng Zheng, Jie Zhao, Jie Feng, Chen Gao, Jiansheng Chen, Yong Li</div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">homepage</a>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://www.researchgate.net/publication/395713824_A_Survey_of_Embodied_World_Models" target="_blank">A Survey of Embodied World Models</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Xin Zhang, Shengyuan Wang, Yuwei Yan, Honglin Zhang, Zhiheng Zheng, Jie Zhao, Jie Feng, Chen Gao, Jiansheng Chen, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-links"><a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">homepage</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2509.21790" target="_blank">LongScape: Advancing Long-Horizon Embodied World Models with Context-Aware MoE</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Lei Jin, Yiding Ma, Xin Zhang, Chen Gao, Wei Wu, Yong Li</div>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2509.21790" target="_blank">LongScape: Advancing Long-Horizon Embodied World Models with Context-Aware MoE</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Lei Jin, Yiding Ma, Xin Zhang, Chen Gao, Wei Wu, Yong Li</div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2509.21797" target="_blank">MoWM: Mixture-of-World-Models for Embodied Planning via Latent-to-Pixel Feature Modulation</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yangcheng Yu, Xin Zhang, Xin Jin, Haisheng Su, Wei Wu, Yong Li</div>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2509.21797" target="_blank">MoWM: Mixture-of-World-Models for Embodied Planning via Latent-to-Pixel Feature Modulation</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Yangcheng Yu, Xin Zhang, Xin Jin, Haisheng Su, Wei Wu, Yong Li</div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/abs/2402.02563" target="_blank">Synergy-of-Thoughts: Eliciting Efficient Reasoning in Hybrid Language Models</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang*</span>, Yu Li*, Fengli Xu, Yong Li</div>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/abs/2402.02563" target="_blank">Synergy-of-Thoughts: Eliciting Efficient Reasoning in Hybrid Language Models</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang*</span>, Yu Li*, Fengli Xu, Yong Li</div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2407.11965" target="_blank">UrbanWorld: An Urban World Model for 3D City Generation</a></div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yuming Lin, Yu Zheng, Hangyu Fan, Jingtao Ding, Jie Feng, Jiansheng Chen, Li Tian, Yong Li</div>
-                        <div class="pub-links">
-                            <a href="https://github.com/Urban-World/UrbanWorld" target="_blank">code</a>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2407.11965" target="_blank">UrbanWorld: An Urban World Model for 3D City Generation</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors"><span class="me">Yu Shang</span>, Yuming Lin, Yu Zheng, Hangyu Fan, Jingtao Ding, Jie Feng, Jiansheng Chen, Li Tian, Yong Li</div>
+                        <div class="card-footer">
+                            <div class="card-links"><a href="https://github.com/Urban-World/UrbanWorld" target="_blank">code</a></div>
                         </div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2509.21027" target="_blank">KeyWorld: Key Frame Reasoning Enables Effective and Efficient World Models</a></div>
-                        <div class="pub-authors">Sibo Li, Qianyue Hao, <span class="me">Yu Shang</span>, Yong Li</div>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2509.21027" target="_blank">KeyWorld: Key Frame Reasoning Enables Effective and Efficient World Models</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors">Sibo Li, Qianyue Hao, <span class="me">Yu Shang</span>, Yong Li</div>
                     </div>
 
-                    <div class="pub-item">
-                        <div class="pub-title"><a href="https://arxiv.org/pdf/2511.18005" target="_blank">RAISECITY: A Multimodal Agent Framework for Reality-Aligned 3D World Generation at City-Scale</a></div>
-                        <div class="pub-authors">Shengyuan Wang, Zhiheng Zheng, <span class="me">Yu Shang</span>, Lixuan He, Yangcheng Yu, Hangyu Fan, Jie Feng, Qingmin Liao, Yong Li</div>
+                    <div class="exhibition-card">
+                        <div class="card-header">
+                            <div class="card-title"><a href="https://arxiv.org/pdf/2511.18005" target="_blank">RAISECITY: A Multimodal Agent Framework for Reality-Aligned 3D World Generation at City-Scale</a></div>
+                            <span class="art-tag tag-prep">Preprint</span>
+                        </div>
+                        <div class="card-authors">Shengyuan Wang, Zhiheng Zheng, <span class="me">Yu Shang</span>, Lixuan He, Yangcheng Yu, Hangyu Fan, Jie Feng, Qingmin Liao, Yong Li</div>
                     </div>
 
                 </div>
             </section>
 
-            <section id="honors">
-                <h2>Honors and Awards</h2>
-                <ul class="custom-list">
-                    <li><i class="fa-solid fa-trophy"></i> <span><strong>Tsinghua Comprehensive Excellence Award</strong>, 2023, 2024, 2025</span></li>
-                    <li><i class="fa-solid fa-award"></i> <span><strong>Tsinghua Outstanding Social Work Award</strong>, 2018, 2020</span></li>
-                    <li><i class="fa-solid fa-hand-holding-heart"></i> <span><strong>Tsinghua Outstanding Volunteer Service Award</strong>, 2018</span></li>
-                    <li><i class="fa-solid fa-star"></i> <span><strong>Gold Reviewer Award of ICML 2026</strong></span></li>
-                    <li><i class="fa-solid fa-star"></i> <span><strong>Top Reviewer of NeurIPS 2025</strong></span></li>
-                </ul>
-            </section>
+            <div class="dual-row">
+                <section id="honors">
+                    <h2>Honors & Awards</h2>
+                    <ul class="art-list">
+                        <li><i class="fa-solid fa-trophy"></i> <span><strong>Tsinghua Comprehensive Excellence Award</strong> <span style="color:var(--text-ghost)">2023, 2024, 2025</span></span></li>
+                        <li><i class="fa-solid fa-award"></i> <span><strong>Tsinghua Outstanding Social Work Award</strong> <span style="color:var(--text-ghost)">2018, 2020</span></span></li>
+                        <li><i class="fa-solid fa-star"></i> <span><strong>Gold Reviewer Award</strong> @ ICML 2026</span></li>
+                        <li><i class="fa-solid fa-star"></i> <span><strong>Top Reviewer Award</strong> @ NeurIPS 2025</span></li>
+                    </ul>
+                </section>
 
-            <section id="services">
-                <h2>Academic Services</h2>
-                <div class="about-text">
-                    <p><i class="fa-solid fa-code-branch" style="font-size: 11px; margin-right: 8px; color: var(--text-ghost);"></i> <strong>Reviewer for:</strong> NeurIPS, ICML, ICLR, ICCV, ECCV, CVPR, AAAI, TKDE.</p>
-                </div>
-            </section>
-
-            <footer>
-                &copy; 2026 Yu Shang. Latent structure & unified evaluation engineering.
-            </footer>
+                <section id="services">
+                    <h2>Academic Services</h2>
+                    <ul class="art-list">
+                        <li><i class="fa-solid fa-circle-nodes"></i> <span><strong>Program Committee / Reviewer for:</strong><br><span style="line-height:1.8; color:var(--text-lead); font-weight:500;">NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, AAAI, IEEE TKDE</span></span></li>
+                    </ul>
+                </section>
+            </div>
         </main>
+
+        <footer>
+            <span>&copy; 2026 Yu Shang. All rights reserved.</span>
+            <span>Curated with algorithmic precision & minimalism.</span>
+        </footer>
     </div>
 
 </body>
