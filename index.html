@@ -1,717 +1,939 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="awXwEoz1b-JxPMQIdXriZ_a6RMQ-9eRPaNoR9OpKRS8" />
-    <meta name="description" content="Yu Shang (商宇) - Tsinghua University">
-    <title>Yu Shang · 商宇</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --text-primary: #1a1a2e;
-            --text-secondary: #4a4a6a;
-            --text-muted: #8a8aa0;
-            --border-color: #e2e2ef;
-            --accent: #2563eb;
-            --accent-soft: #eef2ff;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-            --shadow-md: 0 6px 20px rgba(0,0,0,0.06);
-            --card-bg: #ffffff;
-            --sidebar-width: 320px;
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="awXwEoz1b-JxPMQIdXriZ_a6RMQ-9eRPaNoR9OpKRS8" />
+  <meta name="description" content="Yu Shang (商宇) - Tsinghua University" />
+  <title>Yu Shang · 商宇</title>
 
-        [data-theme="dark"] {
-            --bg-primary: #0f0f1a;
-            --bg-secondary: #161625;
-            --text-primary: #e4e4ed;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6b6b80;
-            --border-color: #2a2a3c;
-            --accent: #60a5fa;
-            --accent-soft: #1e293b;
-            --card-bg: #1a1a2e;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    :root {
+      --page-bg: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --soft: #888888;
+      --line: #dddddd;
+      --link: #1772d0;
+      --link-hover: #f09228;
+      --badge-bg: #f3f6fb;
+      --badge-text: #334155;
+      --ccf-a-bg: #fff1f2;
+      --ccf-a-text: #be123c;
+      --ccf-b-bg: #eff6ff;
+      --ccf-b-text: #1d4ed8;
+      --ccf-na-bg: #f4f4f5;
+      --ccf-na-text: #71717a;
+      --max-width: 980px;
+    }
 
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background-color var(--transition), color var(--transition);
-            -webkit-font-smoothing: antialiased;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: var(--bg-primary);
-            box-shadow: 0 0 60px rgba(0,0,0,0.03);
-            transition: background-color var(--transition);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* 侧边栏 */
-        .sidebar {
-            width: var(--sidebar-width);
-            flex-shrink: 0;
-            padding: 48px 32px;
-            background-color: var(--bg-primary);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            transition: background-color var(--transition), border-color var(--transition);
-            z-index: 10;
-        }
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15.5px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .profile-avatar {
-            width: 130px;
-            height: 160px;
-            border-radius: var(--radius-md);
-            object-fit: cover;
-            object-position: center 15%;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 24px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .profile-avatar:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-        .profile-name {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-        .profile-zh {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            letter-spacing: 0.12em;
-            margin-bottom: 20px;
-        }
-        .profile-bio {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 24px;
-            text-align: justify;
-        }
-        .profile-bio a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        .profile-bio a:hover { border-bottom-color: var(--accent); }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: none;
+    }
 
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        .social-links a {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background-color: var(--bg-secondary);
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1rem;
-            border: 1px solid var(--border-color);
-            transition: all var(--transition);
-        }
-        .social-links a:hover {
-            background-color: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 22px 50px;
+    }
 
-        .sidebar-section {
-            margin-bottom: 24px;
-        }
-        .sidebar-section h3 {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .sidebar-section h3::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--border-color), transparent);
-        }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 18px 0 14px;
+      font-size: 15px;
+      border-bottom: 1px solid transparent;
+    }
 
-        .honor-list, .selected-list {
-            list-style: none;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .honor-list li, .selected-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-        .honor-list li i {
-            color: var(--accent);
-            font-size: 0.8rem;
-            margin-top: 4px;
-            width: 16px;
-            text-align: center;
-        }
-        .selected-list li a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .selected-list li a:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-        .selected-list li .venue {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-left: 4px;
-        }
+    .top-nav a {
+      color: var(--text);
+    }
 
-        .service-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        .service-text strong { color: var(--text-primary); font-weight: 600; }
+    .top-nav a:hover {
+      color: var(--link-hover);
+    }
 
-        .theme-toggle {
-            margin-top: auto;
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all var(--transition);
-            font-family: var(--font-sans);
-        }
-        .theme-toggle:hover {
-            background-color: var(--accent-soft);
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 170px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 26px;
+      padding-bottom: 30px;
+    }
 
-        /* 主内容区 */
-        .main-content {
-            flex: 1;
-            padding: 48px 40px;
-            overflow-y: auto;
-            background-color: var(--bg-primary);
-            transition: background-color var(--transition);
-        }
+    .name {
+      text-align: center;
+      font-size: 31px;
+      font-weight: 400;
+      margin: 0 0 18px;
+      line-height: 1.2;
+    }
 
-        .section-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--border-color), transparent);
-        }
+    .name .zh {
+      font-size: 26px;
+      color: var(--text);
+      margin-left: 6px;
+    }
 
-        .pub-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 56px;
-        }
+    .bio p {
+      margin: 0 0 12px;
+      text-align: justify;
+    }
 
-        .pub-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            transition: all var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .pub-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .pub-card.featured {
-            border-left: 4px solid var(--accent);
-            background: var(--accent-soft);
-        }
-        .pub-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .pub-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.4;
-            color: var(--text-primary);
-        }
-        .pub-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .pub-title a:hover { color: var(--accent); }
-        .pub-venue {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            background: var(--bg-secondary);
-            padding: 2px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
-            border: 1px solid var(--border-color);
-        }
-        .pub-authors {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        .pub-authors .me {
-            font-weight: 700;
-            color: var(--text-primary);
-            background: linear-gradient(to right, var(--accent-soft), transparent);
-            padding: 0 4px;
-            border-radius: 4px;
-        }
-        .pub-links {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 4px;
-        }
-        .pub-links a {
-            font-size: 0.75rem;
-            font-family: var(--font-mono);
-            color: var(--text-secondary);
-            text-decoration: none;
-            border: 1px solid var(--border-color);
-            padding: 3px 12px;
-            border-radius: 20px;
-            background: var(--bg-secondary);
-            transition: all var(--transition);
-        }
-        .pub-links a:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-        .badge {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 12px;
-            background: #fef2f2;
-            color: #ef4444;
-        }
-        .cofirst-note {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            margin-top: 16px;
-        }
+    .profile-photo {
+      width: 160px;
+      height: 200px;
+      border-radius: 4px;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 1px solid var(--line);
+    }
 
-        /* 移动端 */
-        @media (max-width: 900px) {
-            .app-container { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 32px 24px;
-            }
-            .profile-avatar { width: 90px; height: 110px; margin-bottom: 16px; }
-            .main-content { padding: 32px 20px; }
-            .pub-card-header { flex-direction: column; align-items: flex-start; }
-        }
-    </style>
+    .social {
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--link);
+      font-size: 14.5px;
+    }
+
+    .section {
+      padding-top: 18px;
+      margin-top: 4px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .news-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .news-list li {
+      margin: 4px 0;
+    }
+
+    .news-extra {
+      display: none;
+    }
+
+    .show-more {
+      margin-top: 8px;
+      border: none;
+      background: transparent;
+      color: var(--link);
+      cursor: pointer;
+      font-size: 14.5px;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    .show-more:hover {
+      color: var(--link-hover);
+    }
+
+    .sub-title {
+      font-size: 20px;
+      font-weight: 400;
+      margin: 28px 0 14px;
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 14px 0 18px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .paper:last-child {
+      border-bottom: none;
+    }
+
+    .paper-thumb {
+      width: 180px;
+      height: 112px;
+      border-radius: 4px;
+      border: 1px solid #d8d8d8;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(37,99,235,0.15), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(244,114,182,0.14), transparent 26%),
+        linear-gradient(135deg, #f8fafc, #eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      overflow: hidden;
+    }
+
+    .paper-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .paper-body {
+      min-width: 0;
+    }
+
+    .paper-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 2px;
+    }
+
+    .paper-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .paper-title a {
+      color: var(--link);
+    }
+
+    .paper-title a:hover {
+      color: var(--link-hover);
+    }
+
+    .venue-pack {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      min-width: 150px;
+    }
+
+    .venue-badge,
+    .ccf-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .venue-badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    .ccf-a {
+      background: var(--ccf-a-bg);
+      color: var(--ccf-a-text);
+    }
+
+    .ccf-b {
+      background: var(--ccf-b-bg);
+      color: var(--ccf-b-text);
+    }
+
+    .ccf-na {
+      background: var(--ccf-na-bg);
+      color: var(--ccf-na-text);
+    }
+
+    .authors {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin: 2px 0 4px;
+    }
+
+    .me {
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .links {
+      font-size: 14px;
+      margin: 4px 0;
+      color: var(--soft);
+    }
+
+    .links a {
+      margin-right: 8px;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin-top: 4px;
+    }
+
+    .note {
+      color: var(--soft);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .bio p {
+        text-align: left;
+      }
+
+      .profile-photo {
+        margin: 0 auto;
+        order: -1;
+      }
+
+      .social {
+        justify-content: center;
+      }
+
+      .paper {
+        grid-template-columns: 1fr;
+      }
+
+      .paper-thumb {
+        width: 100%;
+        height: 150px;
+      }
+
+      .paper-title-row {
+        flex-direction: column;
+      }
+
+      .venue-pack {
+        justify-content: flex-start;
+        min-width: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="app-container">
-        <!-- 左侧个人信息栏 -->
-        <aside class="sidebar">
-            <img src="./photo.jpg" alt="Yu Shang" class="profile-avatar" onerror="this.src='https://via.placeholder.com/130x160'">
-            <h1 class="profile-name">Yu Shang</h1>
-            <div class="profile-zh">商宇</div>
-            <div class="profile-bio">
-                <p>Final-year Ph.D. candidate in <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">Electronic Engineering</a> at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>, advised by <a href="https://fi.ee.tsinghua.edu.cn/~liyong/" target="_blank">Prof. Yong Li</a> and <a href="https://jschenthu.weebly.com/publications.html" target="_blank">Prof. Jiansheng Chen</a>. Also holds a B.E. from <a href="https://www.sem.tsinghua.edu.cn/en/" target="_blank">School of Economics & Management</a>.</p>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#service">Service</a>
+    </nav>
+
+    <section id="about" class="about">
+      <div class="bio">
+        <h1 class="name">Yu Shang <span class="zh">商宇</span></h1>
+
+        <p>
+          I am a final-year Ph.D. candidate in the
+          <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">Department of Electronic Engineering</a>
+          at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>,
+          advised by
+          <a href="https://fi.ee.tsinghua.edu.cn/~liyong/" target="_blank">Prof. Yong Li</a>
+          and
+          <a href="https://jschenthu.weebly.com/publications.html" target="_blank">Prof. Jiansheng Chen</a>.
+          I also hold a secondary B.E. degree from the
+          <a href="https://www.sem.tsinghua.edu.cn/en/" target="_blank">School of Economics and Management</a>
+          at Tsinghua University.
+        </p>
+
+        <p>
+          My research centers on <strong>multimodal intelligence</strong>, especially how machines perceive,
+          simulate, and act in complex environments. My current interests include
+          <strong>interactive world models</strong>, <strong>embodied AI</strong>,
+          <strong>vision-language models</strong>, and <strong>multimodal agent systems</strong>.
+        </p>
+
+        <p>
+          I am broadly interested in building AI systems that connect world understanding,
+          physical simulation, personalized interaction, and real-world decision making.
+        </p>
+
+        <div class="social">
+          <a href="mailto:shangy21@mails.tsinghua.edu.cn"><i class="fa-regular fa-envelope"></i> Email</a>
+          <a href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ" target="_blank"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+          <a href="https://github.com/thu-yu-shang" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/%E5%AE%87-%E5%95%86-b72076383/" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+      </div>
+
+      <img class="profile-photo" src="./photo.jpg" alt="Yu Shang" onerror="this.src='https://via.placeholder.com/160x200?text=Yu+Shang'">
+    </section>
+
+    <section id="news" class="section">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li>[2026] <strong>RoboScape-R</strong> accepted by CVPR 2026.</li>
+        <li>[2026] <strong>UrbanMLLM</strong> accepted by ICML 2026.</li>
+        <li>[2026] Released <strong>WorldArena 2.0</strong>, extending embodied world model benchmarking.</li>
+        <li>[2025] <strong>RoboScape</strong> accepted by NeurIPS 2025 as Spotlight.</li>
+        <li>[2025] <strong>AgentRecBench</strong> accepted by NeurIPS 2025 as Spotlight.</li>
+        <li>[2025] <strong>AgentSquare</strong> accepted by ICLR 2025.</li>
+
+        <span class="news-extra" id="newsExtra">
+          <li>[2025] <strong>AirScape</strong> accepted by ACM MM 2025.</li>
+          <li>[2025] <strong>Kaleidoscopic Background Attack</strong> accepted by ICCV 2025.</li>
+          <li>[2025] <strong>Short-video Dataset</strong> accepted by WWW 2025.</li>
+          <li>[2025] <strong>AgentSociety Challenge</strong> accepted by WWW 2025.</li>
+          <li>[2024] <strong>Improving Item-side Fairness of Multimodal Recommendation</strong> accepted by WWW 2024.</li>
+          <li>[2023] <strong>Learning Fine-grained User Interests for Micro-video Recommendation</strong> accepted by SIGIR 2023.</li>
+        </span>
+      </ul>
+      <button class="show-more" onclick="toggleNews()" id="newsButton">▼ Show more</button>
+    </section>
+
+    <section id="publications" class="section">
+      <h2>Publications</h2>
+
+      <h3 class="sub-title">Selected / First-author Publications</h3>
+
+      <div class="paper">
+        <div class="paper-thumb">RS</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a>
             </div>
-
-            <!-- 研究方向突出显示 -->
-            <div class="sidebar-section">
-                <h3>Research Focus</h3>
-                <div class="service-text" style="font-size:0.9rem;">
-                    <strong>🌐 World Models & Multimodal Unified Models</strong><br>
-                    Bridging perception, simulation, and action via interactive world models, vision‑language understanding, and multimodal agent systems.
-                </div>
+            <div class="venue-pack">
+              <span class="venue-badge">NeurIPS 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/abs/2506.23135" target="_blank">pdf</a></div>
+          <div class="desc">Physics-informed embodied world model for simulating and understanding embodied environments.</div>
+        </div>
+      </div>
 
-            <!-- 前置代表作 -->
-            <div class="sidebar-section">
-                <h3>Selected Works</h3>
-                <ul class="selected-list">
-                    <li>
-                        <i class="fa-solid fa-star" style="color:var(--accent); font-size:0.7rem; margin-top:5px;"></i>
-                        <span><a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape</a><span class="venue">NeurIPS 2025</span></span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-star" style="color:var(--accent); font-size:0.7rem; margin-top:5px;"></i>
-                        <span><a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench</a><span class="venue">NeurIPS 2025</span></span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-star" style="color:var(--accent); font-size:0.7rem; margin-top:5px;"></i>
-                        <span><a href="https://arxiv.org/pdf/2410.06153" target="_blank">AgentSquare</a><span class="venue">ICLR 2025</span></span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-star" style="color:var(--accent); font-size:0.7rem; margin-top:5px;"></i>
-                        <span><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena</a><span class="venue">Preprint</span></span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-star" style="color:var(--accent); font-size:0.7rem; margin-top:5px;"></i>
-                        <span><a href="https://arxiv.org/html/2605.17912v1" target="_blank">WorldArena 2.0</a><span class="venue">Preprint</span></span>
-                    </li>
-                </ul>
+      <div class="paper">
+        <div class="paper-thumb">ARB</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a>
             </div>
-
-            <div class="social-links">
-                <a href="mailto:shangy21@mails.tsinghua.edu.cn" title="Email"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ" target="_blank" title="Google Scholar"><i class="fa-graduation-cap fas"></i></a>
-                <a href="https://github.com/thu-yu-shang" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/%E5%AE%87-%E5%95%86-b72076383/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <div class="venue-pack">
+              <span class="venue-badge">NeurIPS 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/abs/2505.19623" target="_blank">pdf</a>
+            <a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a>
+          </div>
+          <div class="desc">A benchmark for evaluating LLM-agent-based personalized recommender systems.</div>
+        </div>
+      </div>
 
-            <div class="sidebar-section">
-                <h3>Honors & Awards</h3>
-                <ul class="honor-list">
-                    <li><i class="fa-solid fa-trophy"></i> <span><strong>Tsinghua Comprehensive Excellence Award</strong> <span style="color:var(--text-muted);">2023–2025</span></span></li>
-                    <li><i class="fa-solid fa-award"></i> <span><strong>Tsinghua Outstanding Social Work Award</strong> <span style="color:var(--text-muted);">2018, 2020</span></span></li>
-                    <li><i class="fa-solid fa-star"></i> <span><strong>Gold Reviewer Award</strong> @ ICML 2026</span></li>
-                    <li><i class="fa-solid fa-star"></i> <span><strong>Top Reviewer Award</strong> @ NeurIPS 2025</span></li>
-                </ul>
+      <div class="paper">
+        <div class="paper-thumb">AS</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2410.06153" target="_blank">AgentSquare: Automatic LLM Agent Search in Modular Design Space</a>
             </div>
-
-            <div class="sidebar-section">
-                <h3>Academic Services</h3>
-                <div class="service-text">
-                    <strong>Program Committee / Reviewer:</strong><br>
-                    NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, AAAI, TKDE
-                </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ICLR 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/pdf/2410.06153" target="_blank">pdf</a>
+            <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
+            <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">page</a>
+          </div>
+          <div class="desc">Automatic search of LLM agents in a modularized agent design space.</div>
+        </div>
+      </div>
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                <i class="fa-solid fa-moon"></i> <span>Dark Mode</span>
-            </button>
-        </aside>
+      <div class="paper">
+        <div class="paper-thumb">SV</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2502.05922" target="_blank">A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">WWW 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/pdf/2502.05922" target="_blank">pdf</a>
+            <a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank">dataset & code</a>
+          </div>
+        </div>
+      </div>
 
-        <!-- 右侧主内容区 -->
-        <main class="main-content">
-            <section id="publications">
-                <h2 class="section-title">Research Publications</h2>
-                <div class="pub-grid">
-                    <!-- 这五个工作已在侧边栏前置，此处仍按顺序列出，并保持高亮样式 -->
-                    <div class="pub-card featured">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a></div>
-                            <span class="badge">Spotlight</span>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
-                        <div class="pub-venue">NeurIPS 2025</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">ASC</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2502.18754" target="_blank">AgentSociety Challenge: Designing LLM Agents for User Modeling and Recommendation on Web Platforms</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">WWW 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li, Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan, Yu Wang, Fengli Xu, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/pdf/2502.18754" target="_blank">pdf</a>
+            <a href="https://github.com/tsinghua-fib-lab/AgentSocietyChallenge" target="_blank">code</a>
+            <a href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/pages/overview.html" target="_blank">page</a>
+          </div>
+        </div>
+      </div>
 
-                    <div class="pub-card featured">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a></div>
-                            <span class="badge">Spotlight</span>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
-                        <div class="pub-venue">NeurIPS 2025</div>
-                        <div class="pub-links"><a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a></div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">Fair</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">Improving Item-side Fairness of Multimodal Recommendation via Modality Debiasing</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">WWW 2024</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Yong Li</div>
+          <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card featured">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2410.06153" target="_blank">Agentsquare: Automatic LLM Agent Search in Modular Design Space</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">ICLR 2025</div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
-                            <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">webpage</a>
-                        </div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">MM</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">Enhancing Adversarial Robustness of Multi-modal Recommendation via Modality Balancing</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ACM MM 2023</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Huimin Ma, Yong Li</div>
+          <div class="links"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <!-- 其余出版物卡片（与原始列表一致，顺序已按原样保留） -->
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2502.05922" target="_blank">A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li</div>
-                        <div class="pub-venue">WWW 2025</div>
-                        <div class="pub-links"><a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank">dataset & code</a></div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">SIGIR</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">Learning Fine-grained User Interests for Micro-video Recommendation</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">SIGIR 2023</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Meng Wang, Yong Li</div>
+          <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2502.18754" target="_blank">AgentSociety Challenge: Designing LLM Agents for User Modeling and Recommendation on Web Platforms</a></div>
-                        </div>
-                        <div class="pub-authors">Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li, Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan, Yu Wang, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">WWW 2025</div>
-                        <div class="pub-links">
-                            <a href="https://github.com/tsinghua-fib-lab/AgentSocietyChallenge" target="_blank">code</a>
-                            <a href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/pages/overview.html" target="_blank">webpage</a>
-                        </div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">CIKM</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">Transferable Structure-based Adversarial Attack of Heterogeneous Graph Neural Network</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">CIKM 2023</span>
+              <span class="ccf-badge ccf-b">CCF-B</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen, Depeng Jin, Yong Li</div>
+          <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">Improving Item-side Fairness of Multimodal Recommendation via Modality Debiasing</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Yong Li</div>
-                        <div class="pub-venue">WWW 2024</div>
-                    </div>
+      <h3 class="sub-title">Co-authored Publications</h3>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">Enhancing Adversarial Robustness of Multi-modal Recommendation via Modality Balancing</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Huimin Ma, Yong Li</div>
-                        <div class="pub-venue">ACM MM 2023</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">RS-R</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2512.03556" target="_blank">RoboScape-R: Unified Reward-Observation World Models for Generalizable Robotics Training via RL</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">CVPR 2026</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/abs/2512.03556" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">Learning Fine-grained User Interests for Micro-video Recommendation</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Meng Wang, Yong Li</div>
-                        <div class="pub-venue">SIGIR 2023</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">UMLLM</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ICML 2026</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
+          <div class="links"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">Transferable Structure-based Adversarial Attack of Heterogeneous Graph Neural Network</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen, Depeng Jin, Yong Li</div>
-                        <div class="pub-venue">CIKM 2023</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">Survey</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2411.14499" target="_blank">Understanding World or Predicting Future? A Comprehensive Survey of World Models</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ACM Computing Surveys 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Jingtao Ding, Yunke Zhang, <span class="me">Yu Shang</span>, Yuheng Zhang, Zefang Zong, Jie Feng, Yuan Yuan, Hongyuan Su, Nian Li, Nicholas Sukiennik, Fengli Xu, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/pdf/2411.14499" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/abs/2512.03556" target="_blank">RoboScape-R: Unified Reward-Observation World Models for Generalizable Robotics Training via RL</a></div>
-                        </div>
-                        <div class="pub-authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
-                        <div class="pub-venue">CVPR 2026</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">AAAI</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/27920/" target="_blank">Transferable Adversarial Attacks for Object Detection Using Object-Aware Significant Feature Distortion</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">AAAI 2024</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Yining Qin, Huimin Ma</div>
+          <div class="links"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/27920/" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a></div>
-                        </div>
-                        <div class="pub-authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
-                        <div class="pub-venue">ICML 2026</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">HCLIP</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://openreview.net/pdf?id=a1oBXsUjx5" target="_blank">Health CLIP: Depression Rate Prediction Using Health Related Features in Satellite and Street View Images</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">WWW 2024</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Tianjian Ouyang, Xin Zhang, Zhenyu Han, <span class="me">Yu Shang</span>, Yong Li</div>
+          <div class="links"><a href="https://openreview.net/pdf?id=a1oBXsUjx5" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2411.14499" target="_blank">Understanding World or Predicting Future? A Comprehensive Survey of World Models</a></div>
-                        </div>
-                        <div class="pub-authors">Jingtao Ding, Yunke Zhang, <span class="me">Yu Shang</span>, Yuheng Zhang, Zefang Zong, Jie Feng, Yuan Yuan, Hongyuan Su, Nian Li, Nicholas Sukiennik, Fengli Xu, Yong Li</div>
-                        <div class="pub-venue">ACM Computing Surveys 2025</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">ICCV</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2507.10265" target="_blank">Kaleidoscopic Background Attack: Disrupting Pose Estimation with Multi-Fold Radial Symmetry Textures</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ICCV 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Xinlong Ding, Hongwei Yu, Jiawei Li, Feifan Li, <span class="me">Yu Shang</span>, Bochao Zou, Huimin Ma, Jiansheng Chen</div>
+          <div class="links"><a href="https://arxiv.org/pdf/2507.10265" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/27920/" target="_blank">Transferable Adversarial Attacks for Object Detection Using Object-Aware Significant Feature Distortion</a></div>
-                        </div>
-                        <div class="pub-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Yining Qin, Huimin Ma</div>
-                        <div class="pub-venue">AAAI 2024</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">ICASSP</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10447293" target="_blank">Enhancing Adversarial Transferability in Object Detection with Bidirectional Feature Distortion</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ICASSP 2024</span>
+              <span class="ccf-badge ccf-b">CCF-B</span>
+            </div>
+          </div>
+          <div class="authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Huimin Ma</div>
+          <div class="links"><a href="https://ieeexplore.ieee.org/abstract/document/10447293" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://openreview.net/pdf?id=a1oBXsUjx5" target="_blank">Health CLIP: Depression Rate Prediction Using Health Related Features in Satellite and Street View Images</a></div>
-                        </div>
-                        <div class="pub-authors">Tianjian Ouyang, Xin Zhang, Zhenyu Han, <span class="me">Yu Shang</span>, Yong Li</div>
-                        <div class="pub-venue">WWW 2024</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">GMS</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2102.10550" target="_blank">Genetic Meta-structure Search for Recommendation on Heterogeneous Information Network</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">CIKM 2020</span>
+              <span class="ccf-badge ccf-b">CCF-B</span>
+            </div>
+          </div>
+          <div class="authors">Zhenyu Han, Fengli Xu, Jinghan Shi, <span class="me">Yu Shang</span>, Haorui Ma, Pan Hui, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/pdf/2102.10550" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2507.10265" target="_blank">Kaleidoscopic Background Attack: Disrupting Pose Estimation with Multi-Fold Radial Symmetry Textures</a></div>
-                        </div>
-                        <div class="pub-authors">Xinlong Ding, Hongwei Yu, Jiawei Li, Feifan Li, <span class="me">Yu Shang</span>, Bochao Zou, Huimin Ma, Jiansheng Chen</div>
-                        <div class="pub-venue">ICCV 2025</div>
-                    </div>
+      <div class="paper">
+        <div class="paper-thumb">Air</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2507.08885" target="_blank">AirScape: An Aerial Generative World Model with Motion Controllability</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">ACM MM 2025</span>
+              <span class="ccf-badge ccf-a">CCF-A</span>
+            </div>
+          </div>
+          <div class="authors">Baining Zhao, Rongze Tang, Mingyuan Jia, Ziyou Wang, Fanghang Man, Xin Zhang, <span class="me">Yu Shang</span>, Weichen Zhang, Chen Gao, Wei Wu, Xin Wang, Xinlei Chen, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/pdf/2507.08885" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10447293" target="_blank">Enhancing Adversarial Transferability in Object Detection with Bidirectional Feature Distortion</a></div>
-                        </div>
-                        <div class="pub-authors">Xinlong Ding, Jiansheng Chen, Hongwei Yu, <span class="me">Yu Shang</span>, Huimin Ma</div>
-                        <div class="pub-venue">ICASSP 2024</div>
-                    </div>
+      <p class="note">* indicates co-first authors. CCF levels are shown according to commonly used CCF categories; preprints are marked as N/A.</p>
+    </section>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2102.10550" target="_blank">Genetic Meta-structure Search for Recommendation on Heterogeneous Information Network</a></div>
-                        </div>
-                        <div class="pub-authors">Zhenyu Han, Fengli Xu, Jinghan Shi, <span class="me">Yu Shang</span>, Haorui Ma, Pan Hui, Yong Li</div>
-                        <div class="pub-venue">CIKM 2020</div>
-                    </div>
+    <section id="projects" class="section">
+      <h2>Projects / Preprints</h2>
 
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2507.08885" target="_blank">AirScape: An Aerial Generative World Model with Motion Controllability</a></div>
-                        </div>
-                        <div class="pub-authors">Baining Zhao, Rongze Tang, Mingyuan Jia, Ziyou Wang, Fanghang Man, Xin Zhang, <span class="me">Yu Shang</span>, Weichen Zhang, Chen Gao, Wei Wu, Xin Wang, Xinlei Chen, Yong Li</div>
-                        <div class="pub-venue">ACM MM 2025</div>
-                    </div>
-                </div>
-                <p class="cofirst-note">* indicates co-first authors.</p>
-            </section>
+      <div class="paper">
+        <div class="paper-thumb">WA2</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/html/2605.17912v1" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2026</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang (Project Lead)</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/html/2605.17912v1" target="_blank">pdf</a>
+            <a href="https://world-arena.ai/" target="_blank">page</a>
+          </div>
+          <div class="desc">A benchmark suite extending embodied world model evaluation across modalities, functionalities, and platforms.</div>
+        </div>
+      </div>
 
-            <section id="preprints">
-                <h2 class="section-title">Preprints</h2>
-                <div class="pub-grid">
-                    <div class="pub-card featured">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/html/2605.17912v1" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang (Project Lead)</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
-                        <div class="pub-links"><a href="https://world-arena.ai/" target="_blank">homepage</a></div>
-                    </div>
-                    <div class="pub-card featured">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang (Project Lead)</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
-                        <div class="pub-links"><a href="https://world-arena.ai/" target="_blank">homepage</a></div>
-                    </div>
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://www.preprints.org/manuscript/202604.0928" target="_blank">A Survey of Embodied World Models</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Xin Zhang, Shengyuan Wang, Yuwei Yan, Honglin Zhang, Zhiheng Zheng, Jie Zhao, Jie Feng, Chen Gao, Jiansheng Chen, Yong Li</div>
-                        <div class="pub-links"><a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">homepage</a></div>
-                    </div>
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2509.21790" target="_blank">LongScape: Advancing Long-Horizon Embodied World Models with Context-Aware MoE</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Lei Jin, Yiding Ma, Xin Zhang, Chen Gao, Wei Wu, Yong Li</div>
-                    </div>
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/abs/2402.02563" target="_blank">Synergy-of-Thoughts: Eliciting Efficient Reasoning in Hybrid Language Models</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang*</span>, Yu Li*, Fengli Xu, Yong Li</div>
-                    </div>
-                    <div class="pub-card">
-                        <div class="pub-card-header">
-                            <div class="pub-title"><a href="https://arxiv.org/pdf/2407.11965" target="_blank">UrbanWorld: An Urban World Model for 3D City Generation</a></div>
-                        </div>
-                        <div class="pub-authors"><span class="me">Yu Shang</span>, Yuming Lin, Yu Zheng, Hangyu Fan, Jingtao Ding, Jie Feng, Jiansheng Chen, Li Tian, Yong Li</div>
-                        <div class="pub-links"><a href="https://github.com/Urban-World/UrbanWorld" target="_blank">code</a></div>
-                    </div>
-                </div>
-            </section>
+      <div class="paper">
+        <div class="paper-thumb">WA</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2026</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang (Project Lead)</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/abs/2602.08971" target="_blank">pdf</a>
+            <a href="https://world-arena.ai/" target="_blank">page</a>
+          </div>
+        </div>
+      </div>
 
-            <footer style="margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border-color); font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <span>&copy; 2026 Yu Shang. All rights reserved.</span>
-                <span>Curated with algorithmic precision & minimalism.</span>
-            </footer>
-        </main>
-    </div>
+      <div class="paper">
+        <div class="paper-thumb">EWM</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://www.preprints.org/manuscript/202604.0928" target="_blank">A Survey of Embodied World Models</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2026</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Yinzhou Tang, Xin Zhang, Shengyuan Wang, Yuwei Yan, Honglin Zhang, Zhiheng Zheng, Jie Zhao, Jie Feng, Chen Gao, Jiansheng Chen, Yong Li</div>
+          <div class="links">
+            <a href="https://www.preprints.org/manuscript/202604.0928" target="_blank">pdf</a>
+            <a href="https://github.com/tsinghua-fib-lab/Awesome-Embodied-World-Model" target="_blank">page</a>
+          </div>
+        </div>
+      </div>
 
-    <script>
-        (function() {
-            const toggleBtn = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const icon = toggleBtn.querySelector('i');
-            const textSpan = toggleBtn.querySelector('span');
+      <div class="paper">
+        <div class="paper-thumb">LS</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2509.21790" target="_blank">LongScape: Advancing Long-Horizon Embodied World Models with Context-Aware MoE</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2025</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Lei Jin, Yiding Ma, Xin Zhang, Chen Gao, Wei Wu, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/pdf/2509.21790" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-            function setTheme(theme) {
-                html.setAttribute('data-theme', theme);
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                    textSpan.textContent = 'Light Mode';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                    textSpan.textContent = 'Dark Mode';
-                }
-                localStorage.setItem('theme', theme);
-            }
+      <div class="paper">
+        <div class="paper-thumb">SoT</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2402.02563" target="_blank">Synergy-of-Thoughts: Eliciting Efficient Reasoning in Hybrid Language Models</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2024</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang*</span>, Yu Li*, Fengli Xu, Yong Li</div>
+          <div class="links"><a href="https://arxiv.org/abs/2402.02563" target="_blank">pdf</a></div>
+        </div>
+      </div>
 
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            setTheme(savedTheme);
+      <div class="paper">
+        <div class="paper-thumb">UW</div>
+        <div class="paper-body">
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/pdf/2407.11965" target="_blank">UrbanWorld: An Urban World Model for 3D City Generation</a>
+            </div>
+            <div class="venue-pack">
+              <span class="venue-badge">Preprint 2024</span>
+              <span class="ccf-badge ccf-na">CCF-N/A</span>
+            </div>
+          </div>
+          <div class="authors"><span class="me">Yu Shang</span>, Yuming Lin, Yu Zheng, Hangyu Fan, Jingtao Ding, Jie Feng, Jiansheng Chen, Li Tian, Yong Li</div>
+          <div class="links">
+            <a href="https://arxiv.org/pdf/2407.11965" target="_blank">pdf</a>
+            <a href="https://github.com/Urban-World/UrbanWorld" target="_blank">code</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            toggleBtn.addEventListener('click', () => {
-                const current = html.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                setTheme(next);
-            });
-        })();
-    </script>
+    <section id="service" class="section">
+      <h2>Academic Service</h2>
+
+      <p><strong>Reviewer / Program Committee Member</strong></p>
+      <ul class="service-list">
+        <li>Conferences: NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, AAAI, TKDE</li>
+      </ul>
+
+      <p style="margin-top:16px;"><strong>Honors & Awards</strong></p>
+      <ul class="service-list">
+        <li>Tsinghua Comprehensive Excellence Award, 2023, 2024, 2025</li>
+        <li>Tsinghua Outstanding Social Work Award, 2018, 2020</li>
+        <li>Gold Reviewer Award @ ICML 2026</li>
+        <li>Top Reviewer Award @ NeurIPS 2025</li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2026 Yu Shang. Design follows a clean academic homepage layout inspired by Jon Barron-style personal websites.
+    </footer>
+  </div>
+
+  <script>
+    function toggleNews() {
+      const extra = document.getElementById("newsExtra");
+      const button = document.getElementById("newsButton");
+
+      if (extra.style.display === "inline") {
+        extra.style.display = "none";
+        button.textContent = "▼ Show more";
+      } else {
+        extra.style.display = "inline";
+        button.textContent = "▲ Show less";
+      }
+    }
+  </script>
 </body>
 </html>
