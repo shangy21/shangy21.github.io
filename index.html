@@ -185,11 +185,23 @@
       display: block;
     }
 
+    .project-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #000000;
+      display: block;
+    }
+
     .project-thumb .fallback {
       display: none;
     }
 
     .project-thumb.is-fallback img {
+      display: none;
+    }
+
+    .project-thumb.is-fallback video {
       display: none;
     }
 
@@ -267,6 +279,19 @@
       font-size: 14px;
       line-height: 1.45;
       margin: 3px 0 4px;
+    }
+
+    .wan-author {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .wan-author-logo {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      object-fit: contain;
     }
 
     .me {
@@ -381,48 +406,133 @@
         <h1 class="name">Yu Shang <span class="zh">商宇</span></h1>
 
         <p>
-        I am a researcher at <a href="https://tongyi.aliyun.com/" target="_blank">Tongyi Lab</a>, Alibaba Group.
-        Before that, I received my Ph.D. and B.E. degrees in the <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">Department of Electronic Engineering</a> from
-        Tsinghua University,
-        and a second B.E. degree from the
-        <a href="https://www.sem.tsinghua.edu.cn/en/" target="_blank">School of Economics and Management</a>
-        at Tsinghua University.
+          I am a researcher at
+          <a href="https://tongyi.aliyun.com/" target="_blank">
+            Tongyi Lab (Wan Team)
+          </a>,
+          Alibaba Group. Before that, I received my Ph.D. and B.E. degrees in the
+          <a href="https://www.ee.tsinghua.edu.cn/en/" target="_blank">
+            Department of Electronic Engineering
+          </a>
+          from Tsinghua University, and a second B.E. degree from the
+          <a href="https://www.sem.tsinghua.edu.cn/en/" target="_blank">
+            School of Economics and Management
+          </a>
+          at Tsinghua University.
         </p>
 
         <p>
-          My current research focuses on <strong>video understanding</strong>, <strong>world model</strong> and
-          <strong>unified multimodal model</strong>, with the goal of building intelligent multimodal systems
-          that can integrate perception, reasoning, and action.
+          My current research focuses on
+          <strong>video understanding</strong>,
+          <strong>world model</strong> and
+          <strong>unified multimodal model</strong>, with the goal of building
+          intelligent multimodal systems that can integrate perception,
+          reasoning, and action.
         </p>
 
         <div class="social">
-          <a href="mailto:sy550801@alibaba-inc.com"><i class="fa-regular fa-envelope"></i> Email</a>
-          <a href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ" target="_blank"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
-          <a href="https://github.com/thu-yu-shang" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="mailto:sy550801@alibaba-inc.com">
+            <i class="fa-regular fa-envelope"></i> Email
+          </a>
+          <a
+            href="https://scholar.google.com/citations?user=2HFt8mkAAAAJ"
+            target="_blank"
+          >
+            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+          </a>
+          <a href="https://github.com/thu-yu-shang" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
         </div>
       </div>
 
-      <img class="profile-photo" src="./photo.jpg" alt="Yu Shang" onerror="this.src='https://via.placeholder.com/160x200?text=Yu+Shang'">
+      <img
+        class="profile-photo"
+        src="./photo.jpg"
+        alt="Yu Shang"
+        onerror="this.src='https://via.placeholder.com/160x200?text=Yu+Shang'"
+      >
     </section>
 
     <section id="projects" class="section">
-      <h2>Featured Projects</h2>
+      <h2>Project</h2>
 
       <div class="project">
         <div class="project-thumb">
-          <img src="https://github.com/tsinghua-fib-lab/WorldArena/raw/main/assets/task_eval.png" alt="WorldArena overview" onerror="thumbFallback(this)">
-          <span class="fallback">WorldArena</span>
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="https://g.alicdn.com/bailian-fe/hot-activity/0.0.34/oriental-aesthetic-poster.jpg"
+            aria-label="Wan3.0 official promotional video"
+            onerror="thumbFallback(this)"
+          >
+            <source
+              src="https://cloud.video.taobao.com/vod/vTwWy1i6wv6qBNxYUC3Pd6hKj2bfRm2tWjgOB4t33OY.mp4"
+              type="video/mp4"
+            >
+          </video>
+          <span class="fallback">Wan 3.0</span>
         </div>
+
         <div>
           <div class="paper-title-row">
             <div class="paper-title">
-              <a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a>
+              <a href="https://wan.video/" target="_blank">Wan3.0</a>
+            </div>
+          </div>
+
+          <div class="authors wan-author">
+            <img
+              class="wan-author-logo"
+              src="https://g.alicdn.com/sail-web/wan-static-resources/0.0.30/images/favicon.ico"
+              alt="Wan logo"
+              onerror="this.style.display='none'"
+            >
+            <span class="me">Wan Team</span>
+          </div>
+
+          <div class="desc">
+            An all-in-one video generation model with native 30-second
+            storytelling, multi-modal omni-reference, cinematic realism, and
+            synchronized audio.
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-thumb">
+          <img
+            src="https://github.com/tsinghua-fib-lab/WorldArena/raw/main/assets/task_eval.png"
+            alt="WorldArena overview"
+            onerror="thumbFallback(this)"
+          >
+          <span class="fallback">WorldArena</span>
+        </div>
+
+        <div>
+          <div class="paper-title-row">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2602.08971" target="_blank">
+                WorldArena: A Unified Benchmark for Evaluating Perception and
+                Functional Utility of Embodied World Models
+              </a>
             </div>
             <div class="venue-pack">
               <span class="venue-badge">AI Open</span>
             </div>
           </div>
-          <div class="authors"><span class="me">Yu Shang (Project Lead)</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li</div>
+
+          <div class="authors">
+            <span class="me">Yu Shang (Project Lead)</span>, Zhuohang Li,
+            Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang,
+            Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah,
+            Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua,
+            Wenwu Zhu, Yong Li
+          </div>
+
           <div class="links">
             <a href="https://arxiv.org/abs/2602.08971" target="_blank">paper</a>
             <a href="https://world-arena.ai/" target="_blank">project page</a>
@@ -432,25 +542,46 @@
             <a href="https://mp.weixin.qq.com/s/frAgAZVs9XuHOpxJeT9EXA" target="_blank">中文报道1</a>
             <a href="https://mp.weixin.qq.com/s/h9sbZGoxO2631DFh4KE_uA" target="_blank">中文报道2</a>
           </div>
-          <div class="desc">A unified benchmark for embodied world models, evaluating both perceptual quality and functional utility.</div>
+
+          <div class="desc">
+            A unified benchmark for embodied world models, evaluating both
+            perceptual quality and functional utility.
+          </div>
         </div>
       </div>
 
       <div class="project">
         <div class="project-thumb">
-          <img src="https://arxiv.org/html/2605.17912v1/x1.png" alt="WorldArena 2.0 overview" onerror="thumbFallback(this)">
+          <img
+            src="https://arxiv.org/html/2605.17912v1/x1.png"
+            alt="WorldArena 2.0 overview"
+            onerror="thumbFallback(this)"
+          >
           <span class="fallback">WorldArena 2.0</span>
         </div>
+
         <div>
           <div class="paper-title-row">
             <div class="paper-title">
-              <a href="https://arxiv.org/html/2605.17912v1" target="_blank">WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</a>
+              <a href="https://arxiv.org/html/2605.17912v1" target="_blank">
+                WorldArena 2.0: Extending Embodied World Model Benchmarking on
+                Modality, Functionality and Platform
+              </a>
             </div>
             <div class="venue-pack">
               <span class="venue-badge">Preprint 2026</span>
             </div>
           </div>
-          <div class="authors"><span class="me">Yu Shang (Project Lead)</span>, Yinzhou Tang, Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang, Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu, Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li</div>
+
+          <div class="authors">
+            <span class="me">Yu Shang (Project Lead)</span>, Yinzhou Tang,
+            Yiding Ma, Zhuohang Li, Lei Jin, Weikang Su, Xin Jin, Zhaolu Wang,
+            Ziyou Wang, Xin Zhang, Haisheng Su, Weizhen He, Wei Wu,
+            Haoyi Duan, Gordon Wetzstein, Xihui Liu, Dhruv Shah,
+            Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian,
+            Tat-Seng Chua, Wenwu Zhu, Chen Gao, Yong Li
+          </div>
+
           <div class="links">
             <a href="https://arxiv.org/html/2605.17912v1" target="_blank">paper</a>
             <a href="https://worldarena2.github.io/" target="_blank">project page</a>
@@ -458,19 +589,30 @@
             <a href="https://huggingface.co/spaces/WorldArena/WorldArena2.0" target="_blank">leaderboard</a>
             <a href="https://serenditipy-ac.github.io/WorldArena-Challenge-2/" target="_blank">competition</a>
           </div>
-          <div class="desc">An expanded benchmark across modality, functionality, and platform for embodied world model evaluation.</div>
+
+          <div class="desc">
+            An expanded benchmark across modality, functionality, and platform
+            for embodied world model evaluation.
+          </div>
         </div>
       </div>
 
       <div class="project">
         <div class="project-thumb">
-          <img src="https://arxiv.org/html/2506.23135v1/x2.png" alt="RoboScape framework" onerror="thumbFallback(this)">
+          <img
+            src="https://arxiv.org/html/2506.23135v1/x2.png"
+            alt="RoboScape framework"
+            onerror="thumbFallback(this)"
+          >
           <span class="fallback">RoboScape</span>
         </div>
+
         <div>
           <div class="paper-title-row">
             <div class="paper-title">
-              <a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a>
+              <a href="https://arxiv.org/abs/2506.23135" target="_blank">
+                RoboScape: Physics-informed Embodied World Model
+              </a>
             </div>
             <div class="venue-pack">
               <span class="highlight-badge">Spotlight</span>
@@ -478,50 +620,82 @@
               <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
           </div>
-          <div class="authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
+
+          <div class="authors">
+            <span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin,
+            Chen Gao, Wei Wu, Yong Li
+          </div>
+
           <div class="links">
             <a href="https://arxiv.org/abs/2506.23135" target="_blank">paper</a>
             <a href="https://mp.weixin.qq.com/s/AvZKIejDMBGN0raBSLnpqA" target="_blank">中文报道</a>
           </div>
-          <div class="desc">A physics-informed embodied world model with temporal depth prediction and adaptive keypoint dynamics.</div>
+
+          <div class="desc">
+            A physics-informed embodied world model with temporal depth
+            prediction and adaptive keypoint dynamics.
+          </div>
         </div>
       </div>
 
       <div class="project">
         <div class="project-thumb">
-          <img src="https://github.com/tsinghua-fib-lab/AgentSquare/raw/main/pics/intro.png" alt="AgentSquare framework" onerror="thumbFallback(this)">
+          <img
+            src="https://github.com/tsinghua-fib-lab/AgentSquare/raw/main/pics/intro.png"
+            alt="AgentSquare framework"
+            onerror="thumbFallback(this)"
+          >
           <span class="fallback">AgentSquare</span>
         </div>
+
         <div>
           <div class="paper-title-row">
             <div class="paper-title">
-              <a href="https://arxiv.org/pdf/2410.06153" target="_blank">AgentSquare: Automatic LLM Agent Search in Modular Design Space</a>
+              <a href="https://arxiv.org/pdf/2410.06153" target="_blank">
+                AgentSquare: Automatic LLM Agent Search in Modular Design Space
+              </a>
             </div>
             <div class="venue-pack">
               <span class="venue-badge">ICLR 2025</span>
               <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
           </div>
-          <div class="authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
+
+          <div class="authors">
+            <span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma,
+            Jiahe Liu, Fengli Xu, Yong Li
+          </div>
+
           <div class="links">
             <a href="https://arxiv.org/pdf/2410.06153" target="_blank">paper</a>
             <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
             <a href="https://tsinghua-fib-lab.github.io/AgentSquare_website/" target="_blank">project page</a>
             <a href="https://mp.weixin.qq.com/s/NL7AnKb1WBM1_CywNM7uyQ" target="_blank">中文报道</a>
           </div>
-          <div class="desc">Automatic search of LLM agents in a modular design space.</div>
+
+          <div class="desc">
+            Automatic search of LLM agents in a modular design space.
+          </div>
         </div>
       </div>
 
       <div class="project">
         <div class="project-thumb">
-          <img src="https://arxiv.org/html/2505.19623v2/x1.png" alt="AgentRecBench overview" onerror="thumbFallback(this)">
+          <img
+            src="https://arxiv.org/html/2505.19623v2/x1.png"
+            alt="AgentRecBench overview"
+            onerror="thumbFallback(this)"
+          >
           <span class="fallback">AgentRecBench</span>
         </div>
+
         <div>
           <div class="paper-title-row">
             <div class="paper-title">
-              <a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a>
+              <a href="https://arxiv.org/abs/2505.19623" target="_blank">
+                AgentRecBench: Benchmarking LLM Agent-based Personalized
+                Recommender Systems
+              </a>
             </div>
             <div class="venue-pack">
               <span class="highlight-badge">Spotlight</span>
@@ -529,12 +703,21 @@
               <span class="ccf-badge ccf-a">CCF-A</span>
             </div>
           </div>
-          <div class="authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
+
+          <div class="authors">
+            <span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan,
+            Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang,
+            Fengli Xu, Yu Wang, Min Zhang, Yong Li
+          </div>
+
           <div class="links">
             <a href="https://arxiv.org/abs/2505.19623" target="_blank">paper</a>
             <a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a>
           </div>
-          <div class="desc">A benchmark for LLM-agent-based personalized recommender systems.</div>
+
+          <div class="desc">
+            A benchmark for LLM-agent-based personalized recommender systems.
+          </div>
         </div>
       </div>
     </section>
@@ -542,50 +725,95 @@
     <section id="news" class="section">
       <h2>News</h2>
       <ul class="news-list">
-        <li>[2026.5] Released <strong>WorldArena 2.0</strong>, extending embodied world model benchmarking across modality, functionality, and platform.</li>
-        <li>[2026.2] Released <strong>WorldArena</strong>, a unified benchmark for evaluating embodied world models.</li>
-        <li>[2025.9] <strong>RoboScape</strong> accepted by NeurIPS 2025 as <strong>Spotlight</strong>.</li>
-        <li>[2025.9] <strong>AgentRecBench</strong> accepted by NeurIPS 2025 as <strong>Spotlight</strong>.</li>
-        <li>[2025.1] <strong>AgentSquare</strong> accepted by ICLR 2025.</li>
+        <li>
+          [2026.5] Released <strong>WorldArena 2.0</strong>, extending embodied
+          world model benchmarking across modality, functionality, and platform.
+        </li>
+        <li>
+          [2026.2] Released <strong>WorldArena</strong>, a unified benchmark for
+          evaluating embodied world models.
+        </li>
+        <li>
+          [2025.9] <strong>RoboScape</strong> accepted by NeurIPS 2025 as
+          <strong>Spotlight</strong>.
+        </li>
+        <li>
+          [2025.9] <strong>AgentRecBench</strong> accepted by NeurIPS 2025 as
+          <strong>Spotlight</strong>.
+        </li>
+        <li>
+          [2025.1] <strong>AgentSquare</strong> accepted by ICLR 2025.
+        </li>
       </ul>
     </section>
 
     <section id="publications" class="section">
       <h2>Selected / First-author Publications</h2>
+
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/abs/2602.08971" target="_blank">WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models</a></div>
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2602.08971" target="_blank">
+              WorldArena: A Unified Benchmark for Evaluating Perception and
+              Functional Utility of Embodied World Models
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">AI Open</span>
           </div>
         </div>
-          <div class="authors"><span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su, Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang, Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li</div>
-        <div class="links"><a href="https://arxiv.org/abs/2602.08971" target="_blank">paper</a></div>
-      </div>
-      
-      <div class="publication">
-        <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/abs/2506.23135" target="_blank">RoboScape: Physics-informed Embodied World Model</a></div>
-          <div class="venue-pack">
-            <span class="highlight-badge">Spotlight</span>
-            <span class="venue-badge">NeurIPS 2025</span>
-            <span class="ccf-badge ccf-a">CCF-A</span>
-          </div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Zhuohang Li, Yiding Ma, Weikang Su,
+          Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang, Yinzhou Tang, Haisheng Su,
+          Chen Gao, Wei Wu, Xihui Liu, Dhruv Shah, Zhaoxiang Zhang,
+          Zhibo Chen, Jun Zhu, Yonghong Tian, Tat-Seng Chua, Wenwu Zhu, Yong Li
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin, Chen Gao, Wei Wu, Yong Li</div>
-        <div class="links"><a href="https://arxiv.org/abs/2506.23135" target="_blank">paper</a></div>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2602.08971" target="_blank">paper</a>
+        </div>
       </div>
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/abs/2505.19623" target="_blank">AgentRecBench: Benchmarking LLM Agent-based Personalized Recommender Systems</a></div>
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2506.23135" target="_blank">
+              RoboScape: Physics-informed Embodied World Model
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="highlight-badge">Spotlight</span>
             <span class="venue-badge">NeurIPS 2025</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu, Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu, Yu Wang, Min Zhang, Yong Li</div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Xin Zhang, Yinzhou Tang, Lei Jin,
+          Chen Gao, Wei Wu, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2506.23135" target="_blank">paper</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="paper-title-row">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2505.19623" target="_blank">
+              AgentRecBench: Benchmarking LLM Agent-based Personalized
+              Recommender Systems
+            </a>
+          </div>
+          <div class="venue-pack">
+            <span class="highlight-badge">Spotlight</span>
+            <span class="venue-badge">NeurIPS 2025</span>
+            <span class="ccf-badge ccf-a">CCF-A</span>
+          </div>
+        </div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Peijie Liu, Yuwei Yan, Zijing Wu,
+          Leheng Sheng, Yuanqing Yu, Chumeng Jiang, An Zhang, Fengli Xu,
+          Yu Wang, Min Zhang, Yong Li
+        </div>
         <div class="links">
           <a href="https://arxiv.org/abs/2505.19623" target="_blank">paper</a>
           <a href="https://huggingface.co/datasets/SGJQovo/AgentRecBench" target="_blank">dataset & benchmark</a>
@@ -594,13 +822,20 @@
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/pdf/2410.06153" target="_blank">AgentSquare: Automatic LLM Agent Search in Modular Design Space</a></div>
+          <div class="paper-title">
+            <a href="https://arxiv.org/pdf/2410.06153" target="_blank">
+              AgentSquare: Automatic LLM Agent Search in Modular Design Space
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">ICLR 2025</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma, Jiahe Liu, Fengli Xu, Yong Li</div>
+        <div class="authors">
+          <span class="me">Yu Shang*</span>, Yu Li*, Keyu Zhao, Likai Ma,
+          Jiahe Liu, Fengli Xu, Yong Li
+        </div>
         <div class="links">
           <a href="https://arxiv.org/pdf/2410.06153" target="_blank">paper</a>
           <a href="https://github.com/tsinghua-fib-lab/AgentSquare" target="_blank">code</a>
@@ -610,13 +845,20 @@
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/pdf/2502.05922" target="_blank">A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform</a></div>
+          <div class="paper-title">
+            <a href="https://arxiv.org/pdf/2502.05922" target="_blank">
+              A Large-scale Dataset with Behavior, Attributes, and Content of
+              Mobile Short-video Platform
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">WWW 2025</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li</div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Chen Gao, Nian Li, Yong Li
+        </div>
         <div class="links">
           <a href="https://arxiv.org/pdf/2502.05922" target="_blank">paper</a>
           <a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank">dataset & code</a>
@@ -625,13 +867,22 @@
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://arxiv.org/pdf/2502.18754" target="_blank">AgentSociety Challenge: Designing LLM Agents for User Modeling and Recommendation on Web Platforms</a></div>
+          <div class="paper-title">
+            <a href="https://arxiv.org/pdf/2502.18754" target="_blank">
+              AgentSociety Challenge: Designing LLM Agents for User Modeling
+              and Recommendation on Web Platforms
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">WWW 2025</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors">Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li, Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan, Yu Wang, Fengli Xu, Yong Li</div>
+        <div class="authors">
+          Yuwei Yan*, <span class="me">Yu Shang*</span>, Qingbin Zeng, Yu Li,
+          Keyu Zhao, Zhiheng Zheng, Xuefei Ning, Tianji Wu, Shengen Yan,
+          Yu Wang, Fengli Xu, Yong Li
+        </div>
         <div class="links">
           <a href="https://arxiv.org/pdf/2502.18754" target="_blank">paper</a>
           <a href="https://github.com/tsinghua-fib-lab/AgentSocietyChallenge" target="_blank">code</a>
@@ -641,112 +892,186 @@
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">Improving Item-side Fairness of Multimodal Recommendation via Modality Debiasing</a></div>
+          <div class="paper-title">
+            <a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">
+              Improving Item-side Fairness of Multimodal Recommendation via
+              Modality Debiasing
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">WWW 2024</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Yong Li</div>
-        <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">paper</a></div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen,
+          Depeng Jin, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://dl.acm.org/doi/pdf/10.1145/3589334.3648156" target="_blank">paper</a>
+        </div>
       </div>
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">Enhancing Adversarial Robustness of Multi-modal Recommendation via Modality Balancing</a></div>
+          <div class="paper-title">
+            <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">
+              Enhancing Adversarial Robustness of Multi-modal Recommendation
+              via Modality Balancing
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">ACM MM 2023</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Huimin Ma, Yong Li</div>
-        <div class="links"><a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">paper</a></div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen,
+          Depeng Jin, Huimin Ma, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612337" target="_blank">paper</a>
+        </div>
       </div>
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">Learning Fine-grained User Interests for Micro-video Recommendation</a></div>
+          <div class="paper-title">
+            <a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">
+              Learning Fine-grained User Interests for Micro-video
+              Recommendation
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">SIGIR 2023</span>
             <span class="ccf-badge ccf-a">CCF-A</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen, Depeng Jin, Meng Wang, Yong Li</div>
-        <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">paper</a></div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Chen Gao, Jiansheng Chen,
+          Depeng Jin, Meng Wang, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://dl.acm.org/doi/pdf/10.1145/3539618.3591713" target="_blank">paper</a>
+        </div>
       </div>
 
       <div class="publication">
         <div class="paper-title-row">
-          <div class="paper-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">Transferable Structure-based Adversarial Attack of Heterogeneous Graph Neural Network</a></div>
+          <div class="paper-title">
+            <a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">
+              Transferable Structure-based Adversarial Attack of Heterogeneous
+              Graph Neural Network
+            </a>
+          </div>
           <div class="venue-pack">
             <span class="venue-badge">CIKM 2023</span>
             <span class="ccf-badge ccf-b">CCF-B</span>
           </div>
         </div>
-        <div class="authors"><span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen, Depeng Jin, Yong Li</div>
-        <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">paper</a></div>
+        <div class="authors">
+          <span class="me">Yu Shang</span>, Yudong Zhang, Jiansheng Chen,
+          Depeng Jin, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615095" target="_blank">paper</a>
+        </div>
       </div>
 
-        <div class="publication">
-    <div class="paper-title-row">
-      <div class="paper-title">
-        <a href="https://arxiv.org/abs/2512.03556" target="_blank">RoboScape-R: Unified Reward-Observation World Models for Generalizable Robotics Training via RL</a>
+      <div class="publication">
+        <div class="paper-title-row">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2512.03556" target="_blank">
+              RoboScape-R: Unified Reward-Observation World Models for
+              Generalizable Robotics Training via RL
+            </a>
+          </div>
+          <div class="venue-pack">
+            <span class="venue-badge">CVPR 2026</span>
+            <span class="ccf-badge ccf-a">CCF-A</span>
+          </div>
+        </div>
+        <div class="authors">
+          Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*,
+          Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu,
+          Chen Gao, Wei Wu, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2512.03556" target="_blank">paper</a>
+        </div>
       </div>
-      <div class="venue-pack">
-        <span class="venue-badge">CVPR 2026</span>
-        <span class="ccf-badge ccf-a">CCF-A</span>
-      </div>
-    </div>
-    <div class="authors">Yinzhou Tang*, <span class="me">Yu Shang*</span>, Yinuo Chen*, Bingwen Wei, Xin Zhang, Shu'ang Yu, Liangzhi Shi, Chao Yu, Chen Gao, Wei Wu, Yong Li</div>
-    <div class="links"><a href="https://arxiv.org/abs/2512.03556" target="_blank">paper</a></div>
-  </div>
 
-  <div class="publication">
-    <div class="paper-title-row">
-      <div class="paper-title">
-        <a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">UrbanMLLM: Joint Learning of Cross-view Imagery for Urban Understanding</a>
+      <div class="publication">
+        <div class="paper-title-row">
+          <div class="paper-title">
+            <a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">
+              UrbanMLLM: Joint Learning of Cross-view Imagery for Urban
+              Understanding
+            </a>
+          </div>
+          <div class="venue-pack">
+            <span class="venue-badge">ICML 2026</span>
+            <span class="ccf-badge ccf-a">CCF-A</span>
+          </div>
+        </div>
+        <div class="authors">
+          Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>,
+          Qingmin Liao, Yong Li
+        </div>
+        <div class="links">
+          <a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">paper</a>
+        </div>
       </div>
-      <div class="venue-pack">
-        <span class="venue-badge">ICML 2026</span>
-        <span class="ccf-badge ccf-a">CCF-A</span>
-      </div>
-    </div>
-    <div class="authors">Xin Zhang*, Tianjian Ouyang*, <span class="me">Yu Shang*</span>, Qingmin Liao, Yong Li</div>
-    <div class="links"><a href="https://openreview.net/pdf?id=YBht9Vp5vC" target="_blank">paper</a></div>
-  </div>
-      
+
       <p class="note">* indicates co-first authors.</p>
     </section>
-    
-  <section id="honors" class="section">
-    <h2>Honors & Awards</h2>
-    <ul class="service-list">
-      <li>Tsinghua Comprehensive Excellence Award, 2023, 2024, 2025</li>
-      <li>Tsinghua Outstanding Social Work Award, 2018, 2020</li>
-      <li>Gold Reviewer Award @ ICML 2026</li>
-      <li>Top Reviewer Award @ NeurIPS 2025</li>
-    </ul>
-  </section>
-    
-    <section id="service" class="section">
-      <h2>Academic Service</h2>
+
+    <section id="honors" class="section">
+      <h2>Honors & Awards</h2>
       <ul class="service-list">
-        <li>Reviewer of NeurIPS, ICML, ICLR, TMLR, CVPR, ICCV, ECCV, AAAI, TKDE, ACM Computing Surveys</li>
-        <li>Organizer of <a href="http://cvpr2026challenge.world-arena.ai/" target="_blank">WorldArena Challenge@CVPR 2026</a></li>
-        <li>Organizer of <a href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/workshop/index.html" target="_blank">AgentSociety Challenge@WWW 2025</a></li>
+        <li>Tsinghua Comprehensive Excellence Award, 2023, 2024, 2025</li>
+        <li>Tsinghua Outstanding Social Work Award, 2018, 2020</li>
+        <li>Gold Reviewer Award @ ICML 2026</li>
+        <li>Top Reviewer Award @ NeurIPS 2025</li>
       </ul>
     </section>
 
-    
+    <section id="service" class="section">
+      <h2>Academic Service</h2>
+      <ul class="service-list">
+        <li>
+          Reviewer of NeurIPS, ICML, ICLR, TMLR, CVPR, ICCV, ECCV, AAAI,
+          TKDE, ACM Computing Surveys
+        </li>
+        <li>
+          Organizer of
+          <a href="http://cvpr2026challenge.world-arena.ai/" target="_blank">
+            WorldArena Challenge@CVPR 2026
+          </a>
+        </li>
+        <li>
+          Organizer of
+          <a
+            href="https://tsinghua-fib-lab.github.io/AgentSocietyChallenge/workshop/index.html"
+            target="_blank"
+          >
+            AgentSociety Challenge@WWW 2025
+          </a>
+        </li>
+      </ul>
+    </section>
+
     <footer>
       © 2026 Yu Shang.
     </footer>
   </div>
 
   <script>
-    function thumbFallback(img) {
-      const box = img.closest(".project-thumb");
-      if (box) box.classList.add("is-fallback");
+    function thumbFallback(media) {
+      const box = media.closest(".project-thumb");
+      if (box) {
+        box.classList.add("is-fallback");
+      }
     }
   </script>
 </body>
